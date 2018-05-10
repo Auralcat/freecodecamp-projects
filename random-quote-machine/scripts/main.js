@@ -1,8 +1,9 @@
 $(document).ready(function() {
+    // Write quote
     $("#anotherQuote").click(function() {
-        $.getJSON('http://quotes.rest/qod.json?category=inspire', function(data) {
-            let quoteText = data.contents.quotes[0].quote;
-            let quoteAuthor = data.contents.quotes[0].author;
+        $.getJSON('https://got-quotes.herokuapp.com/quotes', function(data) {
+            let quoteText = data.quote;
+            let quoteAuthor = data.character;
 
             // Change jumbotron contents afterwards
             $("#quote").text(quoteText);
