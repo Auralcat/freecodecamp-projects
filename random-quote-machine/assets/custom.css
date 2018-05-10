@@ -1,0 +1,12 @@
+body {
+  height: 100%;
+  margin: 4px;
+  text-align: center;
+}
+
+.custom-button-panel {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  width: 50%;
+}
