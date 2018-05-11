@@ -5,6 +5,7 @@
  - #4a99d6
  - #f75d65
  */
+
 body {
   height: 100%;
   margin: 4px;
@@ -12,12 +13,9 @@ body {
 }
 
 .custom-button-panel {
-  display: flex;
-  justify-content: space-around;
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
 }
 
 .btn {
