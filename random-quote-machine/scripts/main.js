@@ -10,4 +10,15 @@ $(document).ready(function() {
             $("#author").text(quoteAuthor);
         });
     });
+
+    // Tweet quote
+    $("#tweetQuote").click(function() {
+        let targetText = $("#quote").text();
+        let targetAuthor = $("#author").text();
+
+        let twitterLink = "https://twitter.com/intent/tweet?text=";
+        window.open(twitterLink + targetText + " - " + targetAuthor
+                    + " via @miriamretka's Random Quote Machine",
+                    "width=500,height=300");
+    });
 });
