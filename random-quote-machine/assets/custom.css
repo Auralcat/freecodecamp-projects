@@ -13,6 +13,22 @@ body {
   width: 50%;
 }
 
+.quote-active {
+  animation: type 1s steps(50);
+}
+
+/* Typing animation */
+@keyframes type {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+/* --------------- */
+
 .btn {
   transition: 0.3s;
 }

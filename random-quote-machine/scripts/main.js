@@ -1,9 +1,14 @@
 $(document).ready(function() {
     // Write quote
     $("#anotherQuote").click(function() {
-        $.getJSON('https://got-quotes.herokuapp.com/quotes', function(data) {
+        $.getJSON("https://got-quotes.herokuapp.com/quotes", function(data) {
             let quoteText = data.quote;
             let quoteAuthor = data.character;
+
+            $(".quote-box").removeClass("quote-active");
+            // Animate quote
+            setTimeout(function() {$(".quote-box").addClass("quote-active");},
+                       20);
 
             // Change jumbotron contents afterwards
             $("#quote").text(quoteText);
