@@ -13,9 +13,8 @@ body {
 }
 
 .custom-button-panel {
-  margin-bottom: 30px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  background-color: #afa;
 }
 
 .btn {
