@@ -12,14 +12,14 @@ body {
   text-align: center;
 }
 
-.custom-button-panel {
-  margin: auto;
-}
-
 .btn {
   transition: 0.3s;
   margin: 8px;
   width: 169px;
+}
+
+.button-panel {
+  margin-bottom: 10vh;
 }
 
 .btn:hover {
