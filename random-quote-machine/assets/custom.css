@@ -13,18 +13,23 @@ body {
   width: 50%;
 }
 
+.quote-box {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .quote-active {
-  animation: type 1s steps(50);
+  animation: type 3s steps(140);
 }
 
 /* Typing animation */
 @keyframes type {
   0% {
-    width: 0%;
+    width: 0ch;
   }
 
   100% {
-    width: 100%;
+    width: 140ch;
   }
 }
 /* --------------- */

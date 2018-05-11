@@ -8,7 +8,7 @@ $(document).ready(function() {
             $(".quote-box").removeClass("quote-active");
             // Animate quote
             setTimeout(function() {$(".quote-box").addClass("quote-active");},
-                       20);
+                       30);
 
             // Change jumbotron contents afterwards
             $("#quote").text(quoteText);
