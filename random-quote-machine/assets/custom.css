@@ -1,3 +1,10 @@
+/* Color palette:
+ - #49ea46
+ - #03706e
+ - #d30609
+ - #4a99d6
+ - #f75d65
+ */
 body {
   height: 100%;
   margin: 4px;
@@ -19,6 +26,16 @@ body {
 
 .btn:hover {
   transition: 0.3s;
+}
+
+.btn--another-quote {
+  background-color: #49ea46 !important;
+  color: #fff;
+}
+
+.btn--tweet {
+  background-color: #4a99d6 !important;
+  color: #fff;
 }
 
 .copyleft {
