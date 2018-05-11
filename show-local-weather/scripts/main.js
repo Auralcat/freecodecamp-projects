@@ -2,8 +2,8 @@ $(document).ready(function() {
     // First you need to get the user's lat and long
     navigator.geolocation.getCurrentPosition(function(pos) {
         // Get weather through lat and long
-        let latitude = Math.floor(pos.coords.latitude);
-        let longitude = Math.floor(pos.coords.longitude);
+        let latitude = pos.coords.latitude;
+        let longitude = pos.coords.longitude;
 
         console.log(latitude);
         console.log(longitude);
@@ -14,6 +14,7 @@ $(document).ready(function() {
         console.log(apiEndpoint + location);
         $.getJSON(apiEndpoint + location, function(data) {
             console.log(data);
+            console.log(data.weather[0].icon);
         });
     });
 });
