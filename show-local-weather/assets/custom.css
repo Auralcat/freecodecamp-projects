@@ -1,0 +1,22 @@
+body {
+  height: 100%;
+  margin: 4px;
+  text-align: center;
+}
+
+.btn {
+  transition: 0.3s;
+}
+
+.button-panel {
+  margin-bottom: 10vh;
+}
+
+.btn:hover {
+  transition: 0.3s;
+}
+
+.copyleft {
+  display: inline-block;
+  transform: rotate(180deg);
+}
