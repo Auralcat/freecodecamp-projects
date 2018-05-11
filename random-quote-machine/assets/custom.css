@@ -12,3 +12,8 @@ body {
   margin-right: auto;
   width: 50%;
 }
+
+.copyleft {
+  display: inline-block;
+  transform: rotate(180deg);
+}
