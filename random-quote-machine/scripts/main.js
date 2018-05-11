@@ -2,17 +2,26 @@ $(document).ready(function() {
     // Write quote
     $("#anotherQuote").click(function() {
         $.getJSON("https://got-quotes.herokuapp.com/quotes", function(data) {
+            // Clear the contents
+            $("#quote").text("");
+            $("#author").text("");
+
             let quoteText = data.quote;
             let quoteAuthor = data.character;
 
-            $(".quote-box").removeClass("quote-active");
-            // Animate quote
-            setTimeout(function() {$(".quote-box").addClass("quote-active");},
-                       30);
+            // Type the content!
+            let typedQuote = new Typed("#quote", {
+                strings: [quoteText],
+                typeSpeed: 30
+            });
 
-            // Change jumbotron contents afterwards
-            $("#quote").text(quoteText);
-            $("#author").text(quoteAuthor);
+            setTimeout(function() {
+                let typedAuthor = new Typed("#author", {
+                    strings: [quoteAuthor],
+                    typeSpeed: 30
+                });
+            }, 5000);
+
         });
     });
 

@@ -14,25 +14,8 @@ body {
 }
 
 .quote-box {
-  overflow: hidden;
-  white-space: nowrap;
-}
 
-.quote-active {
-  animation: type 3s steps(140);
 }
-
-/* Typing animation */
-@keyframes type {
-  0% {
-    width: 0ch;
-  }
-
-  100% {
-    width: 140ch;
-  }
-}
-/* --------------- */
 
 .btn {
   transition: 0.3s;
