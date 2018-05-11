@@ -14,11 +14,12 @@ body {
 
 .custom-button-panel {
   margin: auto;
-  background-color: #afa;
 }
 
 .btn {
   transition: 0.3s;
+  margin: 8px;
+  width: 169px;
 }
 
 .btn:hover {
