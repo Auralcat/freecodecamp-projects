@@ -1,10 +1,19 @@
 $(document).ready(function() {
     // First you need to get the user's lat and long
-    let userLatitude;
-    let userLongitude;
+    navigator.geolocation.getCurrentPosition(function(pos) {
+        // Get weather through lat and long
+        let latitude = Math.floor(pos.coords.latitude);
+        let longitude = Math.floor(pos.coords.longitude);
 
-    // Get weather through lat and long
-    $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat=35&lon=139", function(data) {
+        console.log(latitude);
+        console.log(longitude);
 
+        let apiEndpoint = "https://fcc-weather-api.glitch.me/api/current";
+        let location = "?lat=" + latitude + "&lon=" + longitude;
+
+        console.log(apiEndpoint + location);
+        $.getJSON(apiEndpoint + location, function(data) {
+            console.log(data);
+        });
     });
 });
