@@ -13,6 +13,14 @@ body {
   width: 50%;
 }
 
+.btn {
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transition: 0.3s;
+}
+
 .copyleft {
   display: inline-block;
   transform: rotate(180deg);
