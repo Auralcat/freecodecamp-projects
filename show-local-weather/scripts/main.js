@@ -2,6 +2,7 @@ const fahrenheitToCelsius = temp => (9/5) * temp + 32;
 const celsiusToFahrenheit = temp => (5/9) * (temp - 32);
 
 // Initializing some variables
+let tempIsCelsius = true;
 
 $(document).ready(function() {
     // First you need to get the user's lat and long
@@ -37,9 +38,17 @@ $(document).ready(function() {
         });
 
         $("#toggleFahCel").click(function() {
-            // Convert the temperature later:
-            $("#currentTemperature").text("Sample value for changing to F");
-            $("#temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Fahrenheit.svg");
+            let currentValue = $("#currentTemperature").text();
+
+            if (tempIsCelsius) {
+                $("#currentTemperature").text(celsiusToFahrenheit(currentValue).toPrecision(4));
+                $("#temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Fahrenheit.svg");
+                tempIsCelsius = false;
+            } else {
+                $("#currentTemperature").text(fahrenheitToCelsius(currentValue).toPrecision(4));
+                $("#temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Celcius.svg");
+                tempIsCelsius = true;
+            }
         });
     });
 });
