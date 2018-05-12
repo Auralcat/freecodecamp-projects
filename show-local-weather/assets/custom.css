@@ -35,6 +35,10 @@ img {
   width: 64px;
 }
 
+.temperature-unit {
+
+}
+
 .wind-arrow {
   height: 64px;
   transition: 0.8s;

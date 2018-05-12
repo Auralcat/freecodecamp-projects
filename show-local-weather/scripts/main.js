@@ -11,13 +11,8 @@ $(document).ready(function() {
         let latitude = pos.coords.latitude;
         let longitude = pos.coords.longitude;
 
-        console.log(latitude);
-        console.log(longitude);
-
         let apiEndpoint = "https://fcc-weather-api.glitch.me/api/current";
         let location = "?lat=" + latitude + "&lon=" + longitude;
-
-        console.log(apiEndpoint + location);
 
         // Get weather through lat and long
         $.getJSON(apiEndpoint + location, function(data) {
@@ -46,13 +41,13 @@ $(document).ready(function() {
                 $("#currentTemperature").text(celsiusToFahrenheit(currTemp).toPrecision(4));
                 $("#minimumTemperature").text(celsiusToFahrenheit(minTemp).toPrecision(4));
                 $("#maximumTemperature").text(celsiusToFahrenheit(maxTemp).toPrecision(4));
-                $(".temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Fahrenheit.svg");
+                $(".temperature-unit").attr("src", "assets/img/weather-icons/Degrees-Fahrenheit.svg");
                 tempIsCelsius = false;
             } else {
                 $("#currentTemperature").text(fahrenheitToCelsius(currTemp).toPrecision(4));
                 $("#minimumTemperature").text(fahrenheitToCelsius(minTemp).toPrecision(4));
                 $("#maximumTemperature").text(fahrenheitToCelsius(maxTemp).toPrecision(4));
-                $(".temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Celcius.svg");
+                $(".temperature-unit").attr("src", "assets/img/weather-icons/Degrees-Celcius.svg");
                 tempIsCelsius = true;
             }
         });
