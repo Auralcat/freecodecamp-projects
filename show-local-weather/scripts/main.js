@@ -23,7 +23,7 @@ $(document).ready(function() {
             $("#mainCondition").text(data.weather[0].main);
             $("#description").text(data.weather[0].description);
 
-            $("#currentTemperature").text("Current temperature: " + data.main.temp);
+            $("#currentTemperature").text(data.main.temp);
             $("#minTemperature").text("Minimum temperature: " + data.main.temp_min);
             $("#maxTemperature").text("Maximum temperature: " + data.main.temp_max);
 
