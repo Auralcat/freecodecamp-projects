@@ -20,15 +20,19 @@ img {
   transition: 0.3s;
 }
 
-.temp-current {
+.temperature-group {
   display: flex;
+  justify-content: center;
+}
+
+.temp-display {
   align-items: center;
+  display: flex;
 }
 
 .thermometer {
   height: 64px;
   width: 64px;
-  display: inline;
 }
 
 .wind-arrow {
