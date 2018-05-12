@@ -42,11 +42,11 @@ $(document).ready(function() {
 
             if (tempIsCelsius) {
                 $("#currentTemperature").text(celsiusToFahrenheit(currentValue).toPrecision(4));
-                $("#temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Fahrenheit.svg");
+                $(".temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Fahrenheit.svg");
                 tempIsCelsius = false;
             } else {
                 $("#currentTemperature").text(fahrenheitToCelsius(currentValue).toPrecision(4));
-                $("#temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Celcius.svg");
+                $(".temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Celcius.svg");
                 tempIsCelsius = true;
             }
         });
