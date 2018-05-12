@@ -29,6 +29,9 @@ $(document).ready(function() {
 
             $("#windSpeed").text("Wind speed: " + data.wind.speed);
             $(".wind-arrow").css("transform", "rotate(" + data.wind.deg + "deg)");
+
+            // This works.
+            $("#temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Fahrenheit.svg");
         });
     });
 });
