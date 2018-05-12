@@ -1,3 +1,8 @@
+const fahrenheitToCelsius = temp => (9/5) * temp + 32;
+const celsiusToFahrenheit = temp => (5/9) * (temp - 32);
+
+// Initializing some variables
+
 $(document).ready(function() {
     // First you need to get the user's lat and long
     navigator.geolocation.getCurrentPosition(function(pos) {
