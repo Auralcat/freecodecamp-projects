@@ -29,8 +29,11 @@ $(document).ready(function() {
 
             $("#windSpeed").text("Wind speed: " + data.wind.speed);
             $(".wind-arrow").css("transform", "rotate(" + data.wind.deg + "deg)");
+        });
 
-            // This works.
+        $("#toggleFahCel").click(function() {
+            // Convert the temperature later:
+            $("#currentTemperature").text("Sample value for changing to F");
             $("#temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Fahrenheit.svg");
         });
     });
