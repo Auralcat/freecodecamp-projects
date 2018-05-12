@@ -18,9 +18,17 @@ $(document).ready(function() {
             console.log(data);
             console.log(data.weather[0].icon);
 
+            $("#cityName").text(data.name);
+
+            $("#mainCondition").text(data.weather[0].main);
+            $("#description").text(data.weather[0].description);
+
             $("#currentTemperature").text("Current temperature: " + data.main.temp);
-            $("#minTemperature").text("Mininum temperature: " + data.main.temp_min);
+            $("#minTemperature").text("Minimum temperature: " + data.main.temp_min);
             $("#maxTemperature").text("Maximum temperature: " + data.main.temp_max);
+
+            $("#windSpeed").text("Wind speed: " + data.wind.speed);
+            $(".wind-arrow").css("transform", "rotate(" + data.wind.deg + "deg)");
         });
     });
 });

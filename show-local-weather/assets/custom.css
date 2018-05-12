@@ -16,6 +16,10 @@ body {
   transition: 0.3s;
 }
 
+.wind-arrow {
+  transition: 0.8s;
+}
+
 .copyleft {
   display: inline-block;
   transform: rotate(180deg);
