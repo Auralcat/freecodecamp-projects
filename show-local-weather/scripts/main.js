@@ -30,22 +30,28 @@ $(document).ready(function() {
             $("#description").text(data.weather[0].description);
 
             $("#currentTemperature").text(data.main.temp);
-            $("#minTemperature").text("Minimum temperature: " + data.main.temp_min);
-            $("#maxTemperature").text("Maximum temperature: " + data.main.temp_max);
+            $("#minimumTemperature").text(data.main.temp_min);
+            $("#maximumTemperature").text(data.main.temp_max);
 
             $("#windSpeed").text("Wind speed: " + data.wind.speed);
             $(".wind-arrow").css("transform", "rotate(" + data.wind.deg + "deg)");
         });
 
         $("#toggleFahCel").click(function() {
-            let currentValue = $("#currentTemperature").text();
+            let currTemp = $("#currentTemperature").text();
+            let minTemp = $("#minimumTemperature").text();
+            let maxTemp = $("#maximumTemperature").text();
 
             if (tempIsCelsius) {
-                $("#currentTemperature").text(celsiusToFahrenheit(currentValue).toPrecision(4));
+                $("#currentTemperature").text(celsiusToFahrenheit(currTemp).toPrecision(4));
+                $("#minimumTemperature").text(celsiusToFahrenheit(minTemp).toPrecision(4));
+                $("#maximumTemperature").text(celsiusToFahrenheit(maxTemp).toPrecision(4));
                 $(".temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Fahrenheit.svg");
                 tempIsCelsius = false;
             } else {
-                $("#currentTemperature").text(fahrenheitToCelsius(currentValue).toPrecision(4));
+                $("#currentTemperature").text(fahrenheitToCelsius(currTemp).toPrecision(4));
+                $("#minimumTemperature").text(fahrenheitToCelsius(minTemp).toPrecision(4));
+                $("#maximumTemperature").text(fahrenheitToCelsius(maxTemp).toPrecision(4));
                 $(".temperatureUnit").attr("src", "assets/img/weather-icons/Degrees-Celcius.svg");
                 tempIsCelsius = true;
             }
