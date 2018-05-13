@@ -21,6 +21,7 @@ $(document).ready(function() {
 
             $("#cityName").text(data.name);
 
+            $("#weather-icon-panel").prepend('<img class="weather-icon" src=' + data.weather[0].icon + '" />');
             $("#mainCondition").text(data.weather[0].main);
             $("#description").text(data.weather[0].description);
 

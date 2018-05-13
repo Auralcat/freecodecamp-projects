@@ -20,10 +20,15 @@ img {
   transition: 0.3s;
 }
 
+.weather-icon {
+  height: 256px;
+  width: 256px;
+}
+
 .temp-display {
   align-items: center;
-  justify-content: center;
   display: flex;
+  justify-content: center;
 }
 
 .thermometer, .temperature-unit {
