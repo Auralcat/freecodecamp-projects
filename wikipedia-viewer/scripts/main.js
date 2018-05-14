@@ -12,10 +12,26 @@ $(document).ready(function() {
             let namespace = "&namespace=0";
 
             // Make API request
-            $.getJSON(APILink + searchQuery + resultsLimit + namespace
-                      + "&format=json", function(data) {
-                $("#searchResults").html("<p>" + data + "</p>");
+            $.ajax({
+                url: APILink + searchQuery + resultsLimit + namespace + "&format=json&callback=?",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                dataType: "json",
+                success: function(data, status, jqXHR) {
+                    console.log(data);
+                }
+            })
+            .done(function() {
+                console.log("complete!");
+            })
+            .fail(function() {
+                console.log("error!");
+            })
+            .always(function() {
+                console.log("terminated");
             });
+
         } else {
             $("#searchResults").html('');
         }
