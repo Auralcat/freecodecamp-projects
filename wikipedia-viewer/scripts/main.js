@@ -9,6 +9,9 @@ $(document).ready(function() {
             let resultsLimit = "&limit=" + "3";
             let namespace = "&namespace=0";
 
+            // Clean old results
+            $("#searchResults").empty();
+
             // Make API request
             $.ajax({
                 url: APILink + searchQuery + resultsLimit + namespace + "&format=json&callback=?",
@@ -19,7 +22,8 @@ $(document).ready(function() {
                 success: function(data, status, jqXHR) {
                     // Treat result
                     console.log(data);
-                    let resultHTMLString = '<div class="result box-shadow">\n<h1>' + data[1][0] + '</h1>\n<p>' + data[2][0] + '</p>';
+                    let resultHTMLString = '<div class="result box-shadow">\n<h1>' + data[1][0] + '</h1>\n<p>' + data[2][0] + '</p>\n<a href="' + data[3][0]
+                                           + '"><button class="btn">Visit Article</button></a>';
                     $(resultHTMLString).appendTo("#searchResults");
                 }
             })
