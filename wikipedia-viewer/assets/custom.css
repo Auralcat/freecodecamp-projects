@@ -12,3 +12,13 @@ img {
   display: inline-block;
   transform: rotate(180deg);
 }
+
+.box-shadow {
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+}
+
+.result {
+  text-align: left;
+  padding: 16px;
+  margin: 8px 0;
+}
