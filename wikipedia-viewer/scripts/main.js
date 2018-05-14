@@ -2,8 +2,6 @@ $(document).ready(function() {
     $("#searchBox").keyup(function() {
         let searchTerm = $("#searchBox").val();
         if (searchTerm != '') {
-            // It works!
-            // $("#searchResults").prepend("<p>" + searchTerm + "</p>");
 
             // Break down API request
             let APILink = "https://en.wikipedia.org/w/api.php?action=opensearch";
@@ -19,7 +17,9 @@ $(document).ready(function() {
                 async: false,
                 dataType: "json",
                 success: function(data, status, jqXHR) {
+                    // Treat result
                     console.log(data);
+                    console.log($(".sample").html());
                 }
             })
             .done(function() {
@@ -33,7 +33,7 @@ $(document).ready(function() {
             });
 
         } else {
-            $("#searchResults").html('');
+
         }
 
     });

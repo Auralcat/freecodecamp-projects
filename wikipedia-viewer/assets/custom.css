@@ -18,7 +18,11 @@ img {
 }
 
 .result {
-  text-align: left;
-  padding: 16px;
   margin: 8px 0;
+  padding: 16px;
+  text-align: left;
+}
+
+.sample {
+  visibility: hidden;
 }
