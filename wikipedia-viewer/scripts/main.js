@@ -22,21 +22,14 @@ $(document).ready(function() {
                 success: function(data, status, jqXHR) {
                     // Treat result
                     console.log(data);
-                    let resultHTMLString = '<div class="result box-shadow">\n<h1>' + data[1][0] + '</h1>\n<p>' + data[2][0] + '</p>\n<a href="' + data[3][0]
-                                           + '"><button class="btn">Visit Article</button></a>';
-                    $(resultHTMLString).appendTo("#searchResults");
+                    // Show all results in their divs
+                    for (let i = 0; i < data.length; i++) {
+                        let resultHTMLString = '<div class="result box-shadow">\n<h1>' + data[1][i] + '</h1>\n<p>' + data[2][i] + '</p>\n<a href="' + data[3][i]
+                                            + '"><button class="btn">Visit Article</button></a>';
+                        $(resultHTMLString).appendTo("#searchResults");
+                    }
                 }
-            })
-            .done(function() {
-                console.log("complete!");
-            })
-            .fail(function() {
-                console.log("error!");
-            })
-            .always(function() {
-                console.log("terminated");
             });
-
         } else {
 
         }
