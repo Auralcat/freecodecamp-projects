@@ -19,7 +19,8 @@ $(document).ready(function() {
                 success: function(data, status, jqXHR) {
                     // Treat result
                     console.log(data);
-                    console.log($(".sample").html());
+                    let resultHTMLString = '<div class="result box-shadow">\n<h1>' + data[1][0] + '</h1>\n<p>' + data[2][0] + '</p>';
+                    $(resultHTMLString).appendTo("#searchResults");
                 }
             })
             .done(function() {
