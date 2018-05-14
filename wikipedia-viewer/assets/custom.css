@@ -1,0 +1,14 @@
+body {
+  height: 100%;
+  margin: 4px;
+  text-align: center;
+}
+
+img {
+  min-height: 100%;
+}
+
+.copyleft {
+  display: inline-block;
+  transform: rotate(180deg);
+}
