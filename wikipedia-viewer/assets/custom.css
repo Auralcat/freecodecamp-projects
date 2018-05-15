@@ -13,16 +13,13 @@ img {
   transform: rotate(180deg);
 }
 
-.box-shadow {
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
-}
-
 .result-superdiv {
   display: flex;
 
 }
 
 .result {
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
   margin: 8px 0;
   padding: 16px;
   text-align: left;

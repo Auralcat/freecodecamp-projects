@@ -29,7 +29,7 @@ $(document).ready(function() {
                         $("#searchResults").append(
                             $("<div/>").addClass("result-superdiv")
                                 .append($("<div/>").addClass("stripe"))
-                                .append($("<div/>").addClass("result box-shadow")
+                                .append($("<div/>").addClass("result")
                                         .append($("<a/>").addClass("article-link").attr("href", data[3][i])
                                                 .append($("<h1/>").text(data[1][i]))
                                                 .append($("<p/>").text(data[2][i]))))
