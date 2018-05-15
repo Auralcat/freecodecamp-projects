@@ -1,9 +1,13 @@
 $(document).ready(function() {
+    // Hide loader
+    $(".loader").hide();
 
     $("#searchBox").keyup(function(event) {
         let searchTerm = $("#searchBox").val();
         let pressedEnter = (event.which || event.keyCode) == 13;
         if (searchTerm != '' && pressedEnter) {
+            // Show loader
+            $(".loader").show();
 
             // Break down API request
             let APILink = "https://en.wikipedia.org/w/api.php?action=opensearch";
@@ -42,6 +46,9 @@ $(document).ready(function() {
                     $(".result-superdiv").hover(function() {
                         $(this).find(".stripe").toggleClass("active");
                     });
+
+                    // Hide loader again
+                    $(".loader").hide();
                 }
             });
 
