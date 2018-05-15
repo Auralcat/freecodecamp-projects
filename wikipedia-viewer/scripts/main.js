@@ -1,8 +1,4 @@
 $(document).ready(function() {
-    // Expand stripe on hover
-    $(".result-superdiv").hover(function() {
-        $(this).find(".stripe").toggleClass("active");
-    });
 
     $("#searchBox").keyup(function(event) {
         let searchTerm = $("#searchBox").val();
@@ -39,8 +35,16 @@ $(document).ready(function() {
                                                 .append($("<p/>").text(data[2][i]))))
                         );
                     }
+
+                    // Expand stripe on hover.
+                    // Function needs to be here because the
+                    // result-superdiv class doesn't exist before then.
+                    $(".result-superdiv").hover(function() {
+                        $(this).find(".stripe").toggleClass("active");
+                    });
                 }
             });
+
         }
     });
 });
