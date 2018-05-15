@@ -13,6 +13,20 @@ img {
   transform: rotate(180deg);
 }
 
+.loader {
+  animation: spin 2s linear infinite;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  border: 16px solid #f3f3f3;
+  height: 120px;
+  margin: auto;
+  width: 120px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 .result-superdiv {
   display: flex;
 
