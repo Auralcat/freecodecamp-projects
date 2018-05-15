@@ -25,8 +25,7 @@ $(document).ready(function() {
                     console.log(data);
                     // Show all results in their divs
                     for (let i = 0; i < data.length - 1; i++) {
-                        let resultHTMLString = '<a href="' + data[3][i] + '"><div class="result box-shadow">\n<h1>' + data[1][i] + '</h1>\n<p>' + data[2][i] + '</p>\n'
-                                            + '<div></a>';
+                        let resultHTMLString = '<a class="article-link" "href="'+ data[3][i] + '"><div class="result box-shadow">\n<h1>' + data[1][i] + '</h1>\n<p>' + data[2][i] + '</p>\n' + '<div></a>';
                         $(resultHTMLString).appendTo("#searchResults");
                     }
                 }
