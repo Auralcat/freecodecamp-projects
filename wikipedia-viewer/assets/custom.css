@@ -35,13 +35,13 @@ img {
 }
 
 .stripe {
-  width: 1px;
+  width: 0;
   background-color: #faf;
   transition: 0.3s;
   height: auto;
 }
 
-.stripe:hover {
+.active {
   width: 24px;
 }
 

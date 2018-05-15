@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    // Expand stripe on hover
+    $(".result-superdiv").hover(function() {
+        $(this).find(".stripe").toggleClass("active");
+    });
+
     $("#searchBox").keyup(function(event) {
         let searchTerm = $("#searchBox").val();
         let pressedEnter = (event.which || event.keyCode) == 13;
@@ -26,10 +31,12 @@ $(document).ready(function() {
                     // Show all results in their divs
                     for (let i = 0; i < data.length - 1; i++) {
                         $("#searchResults").append(
-                            $("<div/>").addClass("result box-shadow")
-                                .append($("<a/>").addClass("article-link").attr("href", data[3][i])
-                                        .append($("<h1/>").text(data[1][i]))
-                                        .append($("<p/>").text(data[2][i])))
+                            $("<div/>").addClass("result-superdiv")
+                                .append($("<div/>").addClass("stripe"))
+                                .append($("<div/>").addClass("result box-shadow")
+                                        .append($("<a/>").addClass("article-link").attr("href", data[3][i])
+                                                .append($("<h1/>").text(data[1][i]))
+                                                .append($("<p/>").text(data[2][i]))))
                         );
                     }
                 }
