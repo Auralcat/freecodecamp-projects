@@ -17,6 +17,11 @@ img {
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
 }
 
+.result-superdiv {
+  display: flex;
+
+}
+
 .result {
   margin: 8px 0;
   padding: 16px;
@@ -27,6 +32,17 @@ img {
 .result:hover {
   background-color: #54a12f;
   transition: 0.3s;
+}
+
+.stripe {
+  width: 1px;
+  background-color: #faf;
+  transition: 0.3s;
+  height: auto;
+}
+
+.stripe:hover {
+  width: 24px;
 }
 
 .article-link, .article-link:hover {
