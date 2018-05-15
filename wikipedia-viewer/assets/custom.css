@@ -17,7 +17,7 @@ img {
 .loader {
   animation: spin 2s linear infinite;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
+  border-top: 16px solid #db8eff;
   height: 120px;
   margin: auto;
   width: 120px;
@@ -50,7 +50,8 @@ img {
 }
 
 .active {
-  width: 24px;
+  margin: 8px 0;
+  padding: 16px;
 }
 
 .article-link, .article-link:hover {
