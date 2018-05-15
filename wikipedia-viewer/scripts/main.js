@@ -24,15 +24,12 @@ $(document).ready(function() {
                     console.log(data);
                     // Show all results in their divs
                     for (let i = 0; i < data.length; i++) {
-                        let resultHTMLString = '<div class="result box-shadow">\n<h1>' + data[1][i] + '</h1>\n<p>' + data[2][i] + '</p>\n<a href="' + data[3][i]
-                                            + '"><button class="btn">Visit Article</button></a>';
+                        let resultHTMLString = '<a href="' + data[3][i] + '">"<div class="result box-shadow">\n<h1>' + data[1][i] + '</h1>\n<p>' + data[2][i] + '</p>\n'
+                                            + '"<div></a>';
                         $(resultHTMLString).appendTo("#searchResults");
                     }
                 }
             });
-        } else {
-
         }
-
     });
 });
