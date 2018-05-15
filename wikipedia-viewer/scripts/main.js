@@ -18,6 +18,8 @@ $(document).ready(function() {
             // Clean old results
             $("#searchResults").empty();
 
+            console.log(APILink + searchQuery + resultsLimit + namespace + "&format=json");
+
             // Make API request
             $.ajax({
                 url: APILink + searchQuery + resultsLimit + namespace + "&format=json&callback=?",
@@ -29,7 +31,7 @@ $(document).ready(function() {
                     // Treat result
                     console.log(data);
                     // Show all results in their divs
-                    for (let i = 0; i < data.length - 1; i++) {
+                    for (let i = 0; i < data[1].length - 1; i++) {
                         $("#searchResults").append(
                             $("<div/>").addClass("result-superdiv")
                                 .append($("<div/>").addClass("stripe"))
