@@ -1,7 +1,8 @@
 $(document).ready(function() {
-    $("#searchBox").keyup(function() {
+    $("#searchBox").keyup(function(event) {
         let searchTerm = $("#searchBox").val();
-        if (searchTerm != '') {
+        let pressedEnter = (event.which || event.keyCode) == 13;
+        if (searchTerm != '' && pressedEnter) {
 
             // Break down API request
             let APILink = "https://en.wikipedia.org/w/api.php?action=opensearch";
