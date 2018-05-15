@@ -12,7 +12,7 @@ $(document).ready(function() {
             // Break down API request
             let APILink = "https://en.wikipedia.org/w/api.php?action=opensearch";
             let searchQuery = "&search=" + searchTerm;
-            let resultsLimit = "&limit=" + "3";
+            let resultsLimit = "&limit=" + "10";
             let namespace = "&namespace=0";
 
             // Clean old results
