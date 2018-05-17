@@ -1,5 +1,14 @@
 @charset "UTF-8";
 /* Touching the file so Sass compiles. */
+.streamer-panel {
+  display: flex;
+  align-items: center;
+  box-shadow: 0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.4); }
+
+.channel-link {
+  text-decoration: none;
+  color: #000; }
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
