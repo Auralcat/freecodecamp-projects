@@ -12,20 +12,24 @@ $(document).ready(function() {
             dataType: "jsonp",
             success: function(data, status, xhr) {
                 let $streamerPanel = $("<div />").addClass("streamer-panel");
+                let streamerLink = "https://twitch.tv/" + streamerName;
 
                 // Add components of div
                 $streamerPanel.append($("<img />").attr("alt", "Sample image"));
                 $streamerPanel.append($("<h3 />").text(streamerName));
 
-                let $clone = $streamerPanel.clone();
+                // Add link to stream panel
+                let $wrappedStreamerPanel = $("<a />").attr("href", streamerLink);
+                $wrappedStreamerPanel.append($streamerPanel);
+                let $clone = $wrappedStreamerPanel.clone();
                 $("#allStreams").append($clone);
 
                 if (data.stream != null) {
                     console.log(`${streamerName} is streaming right now.`);
                     $streamerPanel.append($("<h5/>").text(data.stream.channel.status));
-                    $("#online").append($streamerPanel);
+                    $("#online").append($wrappedStreamerPanel);
                 } else {
-                    $("#offline").append($streamerPanel);
+                    $("#offline").append($wrappedStreamerPanel);
                 }
             }
         });
