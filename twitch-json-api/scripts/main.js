@@ -5,7 +5,6 @@ $(document).ready(function() {
         $.ajax({
             type: "GET",
             url: "https://wind-bow.gomix.me/twitch-api/streams/" + streamerName,
-            async: true,
             crossDomain: true,
             contentType: "application/json; charset=utf-8",
             // Use JSONP - JSON with padding - for cross origin requests.
@@ -18,7 +17,8 @@ $(document).ready(function() {
                 $streamerPanel.append($("<img />").attr("alt", "Sample image"));
                 $streamerPanel.append($("<h3 />").text(streamerName));
 
-                $("#all").append($streamerPanel);
+                let $clone = $streamerPanel.clone();
+                $("#allStreams").append($clone);
 
                 if (data.stream != null) {
                     console.log(`${streamerName} is streaming right now.`);
