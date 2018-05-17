@@ -1,6 +1,5 @@
 let streamerList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
                     "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
-
 $(document).ready(function() {
     streamerList.forEach(function(streamerName) {
         $.ajax({
@@ -13,14 +12,20 @@ $(document).ready(function() {
             // I'm not sure about how safe it is, but it works. :P
             dataType: "jsonp",
             success: function(data, status, xhr) {
-                let streamStatus = "Not streaming";
+                let $streamerPanel = $("<div />").addClass("streamer-panel");
+
+                // Add components of div
+                $streamerPanel.append($("<img />").attr("alt", "Sample image"));
+                $streamerPanel.append($("<h3 />").text(streamerName));
+
+                $("#all").append($streamerPanel);
+
                 if (data.stream != null) {
                     console.log(`${streamerName} is streaming right now.`);
-                    streamStatus = "Streaming!";
+                    $("#online").append($streamerPanel);
+                } else {
+                    $("#offline").append($streamerPanel);
                 }
-                $("#streamerTable").append(
-                    $("<tr />").append($("<td />").text(streamerName))
-                        .append($("<td />").text(streamStatus)));
             }
         });
     });
