@@ -19,7 +19,8 @@ $(document).ready(function() {
                 $streamerPanel.append($("<h3 />").text(streamerName));
 
                 // Add link to stream panel
-                let $wrappedStreamerPanel = $("<a />").attr("href", streamerLink);
+                let $wrappedStreamerPanel = $("<a />").attr("href", streamerLink)
+                                            .addClass("channel-link");
                 $wrappedStreamerPanel.append($streamerPanel);
                 let $clone = $wrappedStreamerPanel.clone();
                 $("#allStreams").append($clone);
