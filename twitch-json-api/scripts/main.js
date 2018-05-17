@@ -29,6 +29,9 @@ $(document).ready(function() {
                 if (data.stream != null) {
                     console.log(`${streamerName} is streaming right now.`);
                     $nameAndDetails.append($("<h6/>").text(data.stream.channel.status));
+                    $streamerPanel.append($("<img />")
+                                          .addClass("status-icon")
+                                          .attr("src", "assets/img/check.svg"));
                     $("#online").append($wrappedStreamerPanel);
                 } else {
                     $("#offline").append($wrappedStreamerPanel);
