@@ -22,6 +22,7 @@ $(document).ready(function() {
 
                 if (data.stream != null) {
                     console.log(`${streamerName} is streaming right now.`);
+                    $streamerPanel.append($("<h5/>").text(data.stream.channel.status));
                     $("#online").append($streamerPanel);
                 } else {
                     $("#offline").append($streamerPanel);
