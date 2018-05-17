@@ -1,5 +1,6 @@
 let streamerList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
                     "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
+// Create a base Ajax request object to keep it DRY
 let ajaxBaseObject = {
     type: "GET",
     crossDomain: true,
@@ -11,11 +12,12 @@ let ajaxBaseObject = {
 
 $(document).ready(function() {
     let imageRequestObject = ajaxBaseObject;
+    let imageLinkArr = [];
 
     streamerList.forEach(function(streamerName) {
         imageRequestObject.url = "https://wind-bow.gomix.me/twitch-api/users/" + streamerName;
         imageRequestObject.success = function(data, status, xhr) {
-            let imageLink = data.logo;
+            imageLinkArr.push(data.logo);
         };
 
         // Request images
@@ -28,7 +30,7 @@ $(document).ready(function() {
             let $nameAndDetails = $("<div />").addClass("name-and-details");
 
             // Add components of div
-            $streamerPanel.append($("<img />").attr("alt", "Pic link goes here"));
+            $streamerPanel.append($("<img />").attr("src", imageLinkArr.pop()));
 
             $nameAndDetails.append($("<h3 />").text(streamerName));
             $streamerPanel.append($nameAndDetails);
