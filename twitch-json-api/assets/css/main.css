@@ -1,22 +1,29 @@
 @charset "UTF-8";
 body {
-  margin: 4px;
   height: 100%;
+  margin: 4px;
   text-align: center; }
 
+img {
+  max-height: 100%; }
+
 .streamer-panel {
-  display: flex;
   align-items: center;
   box-shadow: 0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: space-around;
   text-align: left; }
 
 .name-and-details {
   display: flex;
   flex-direction: column; }
 
+.status-icon {
+  width: 24px; }
+
 .channel-link, .channel-link:hover {
-  text-decoration: none;
-  color: #000; }
+  color: #000;
+  text-decoration: none; }
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
