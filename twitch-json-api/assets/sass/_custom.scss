@@ -11,6 +11,11 @@ body {
     text-align: left;
 }
 
+.name-and-details {
+    display: flex;
+    flex-direction: column;
+}
+
 .channel-link, .channel-link:hover {
     text-decoration: none;
     color: #000;
