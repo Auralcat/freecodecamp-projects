@@ -1,9 +1,14 @@
 @charset "UTF-8";
-/* Touching the file so Sass compiles. */
+body {
+  margin: 4px;
+  height: 100%;
+  text-align: center; }
+
 .streamer-panel {
   display: flex;
   align-items: center;
-  box-shadow: 0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.4); }
+  box-shadow: 0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.4);
+  text-align: left; }
 
 .channel-link, .channel-link:hover {
   text-decoration: none;
