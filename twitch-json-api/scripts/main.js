@@ -1,5 +1,6 @@
 let streamerList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
                     "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
+
 // Create a base Ajax request object to keep it DRY
 let ajaxBaseObject = {
     type: "GET",
@@ -10,19 +11,26 @@ let ajaxBaseObject = {
     dataType: "jsonp"
 };
 
-$(document).ready(function() {
-    let imageRequestObject = ajaxBaseObject;
-    let imageLinkArr = [];
+function getImageLinks(ajaxBaseObject) {
+    let out = [];
 
     streamerList.forEach(function(streamerName) {
-        imageRequestObject.url = "https://wind-bow.gomix.me/twitch-api/users/" + streamerName;
-        imageRequestObject.success = function(data, status, xhr) {
-            imageLinkArr.push(data.logo);
+        ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/users/" + streamerName;
+        ajaxBaseObject.success = function(data, status, xhr) {
+            out.push(data.logo);
         };
+        $.ajax(ajaxBaseObject);
+    });
 
-        // Request images
-        $.ajax(imageRequestObject);
+    // Request images
+    return out;
+}
 
+$(document).ready(function() {
+    let imageLinkArr = getImageLinks(ajaxBaseObject);
+    console.log(imageLinkArr);
+
+    streamerList.forEach(function(streamerName) {
         ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/streams/" + streamerName;
         ajaxBaseObject.success = function(data, status, xhr) {
             let $streamerPanel = $("<div />").addClass("streamer-panel");
@@ -30,22 +38,23 @@ $(document).ready(function() {
             let $nameAndDetails = $("<div />").addClass("name-and-details");
 
             // Add components of div
-            $streamerPanel.append($("<img />").attr("src", imageLinkArr.pop()));
+            let imageLink = imageLinkArr.find(link => link.indexOf(streamerName) !== -1);
+            $streamerPanel.append($("<img />").attr("src", imageLink));
 
             $nameAndDetails.append($("<h3 />").text(streamerName));
             $streamerPanel.append($nameAndDetails);
 
             // Add link to stream panel
             let $wrappedStreamerPanel = $("<a />").attr("href", streamerLink)
-                                        .addClass("channel-link");
+                .addClass("channel-link");
             $wrappedStreamerPanel.append($streamerPanel);
 
             if (data.stream != null) {
                 console.log(`${streamerName} is streaming right now.`);
                 $nameAndDetails.append($("<h6/>").text(data.stream.channel.status));
                 $streamerPanel.append($("<img />")
-                                        .addClass("status-icon")
-                                        .attr("src", "assets/img/check.svg"));
+                    .addClass("status-icon")
+                    .attr("src", "assets/img/check.svg"));
                 $("#online").append($wrappedStreamerPanel);
             } else {
                 $("#offline").append($wrappedStreamerPanel);
