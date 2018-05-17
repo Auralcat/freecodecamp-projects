@@ -13,11 +13,14 @@ $(document).ready(function() {
             // I'm not sure about how safe it is, but it works. :P
             dataType: "jsonp",
             success: function(data, status, xhr) {
-                $("#streamerTable").append(
-                    $("<tr />").append($("<td />").text(streamerName)));
-                if (Object.keys(data.stream).length != 0) {
+                let streamStatus = "Not streaming";
+                if (data.stream != null) {
                     console.log(`${streamerName} is streaming right now.`);
+                    streamStatus = "Streaming!";
                 }
+                $("#streamerTable").append(
+                    $("<tr />").append($("<td />").text(streamerName))
+                        .append($("<td />").text(streamStatus)));
             }
         });
     });
