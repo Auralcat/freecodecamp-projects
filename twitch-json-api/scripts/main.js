@@ -1,6 +1,10 @@
-let streamerList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
-                    "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
-let imageLinkArr = [];
+let streamerDataList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
+    "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"
+].map(function(streamerName) {
+    return {
+        name: streamerName
+    };
+});
 
 // Create a base Ajax request object to keep it DRY
 let ajaxBaseObject = {
@@ -13,7 +17,7 @@ let ajaxBaseObject = {
 };
 
 function getImageLinks(ajaxBaseObject) {
-    streamerList.forEach(function(streamerName) {
+    streamerDataList.forEach(function(streamerName) {
         ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/users/" + streamerName;
         ajaxBaseObject.success = function(data, status, xhr) {
             imageLinkArr.push(data.logo);
@@ -37,7 +41,7 @@ $(document).ready(function() {
     $.when(getImageLinks(ajaxBaseObject)).done(function() {
         console.log(imageLinkArr);
 
-        streamerList.forEach(function(streamerName) {
+        streamerDataList.forEach(function(streamerName) {
             ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/streams/" + streamerName;
             ajaxBaseObject.success = function(data, status, xhr) {
                 let $streamerPanel = $("<div />").addClass("streamer-panel");
