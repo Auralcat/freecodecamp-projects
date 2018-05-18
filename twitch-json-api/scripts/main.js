@@ -28,33 +28,20 @@ function getImageLinks(ajaxBaseObject) {
     });
 }
 
-function hasStreamerPic(link, streamerName) {
-    let hasCustomPic = link.indexOf(streamerName.toLowerCase()) !== -1;
-    let hasDefaultPic = link.indexOf("user-default-pictures") !== -1;
-
-    console.log("Checking " + link + " for " + streamerName);
-    if (hasCustomPic) {
-        console.log("Pic for " + streamerName + " is " + link);
-    }
-    return hasCustomPic || hasDefaultPic;
-}
-
 $(document).ready(function() {
     $.when(getImageLinks(ajaxBaseObject)).done(function() {
-        console.log(imageLinkArr);
 
-        streamerDataList.forEach(function(streamerName) {
-            ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/streams/" + streamerName;
+        streamerDataList.forEach(function(streamerObj) {
+            ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/streams/" + streamerObj.name;
             ajaxBaseObject.success = function(data, status, xhr) {
                 let $streamerPanel = $("<div />").addClass("streamer-panel");
-                let streamerLink = "https://twitch.tv/" + streamerName;
+                let streamerLink = "https://twitch.tv/" + streamerObj.name;
                 let $nameAndDetails = $("<div />").addClass("name-and-details");
 
                 // Add components of div
-                let imageLink = imageLinkArr.find(link => hasStreamerPic(link, streamerName));
                 $streamerPanel.append($("<img />").attr("src", imageLink));
 
-                $nameAndDetails.append($("<h3 />").text(streamerName));
+                $nameAndDetails.append($("<h3 />").text(streamerObj.name));
                 $streamerPanel.append($nameAndDetails);
 
                 // Add link to stream panel
@@ -63,7 +50,7 @@ $(document).ready(function() {
                 $wrappedStreamerPanel.append($streamerPanel);
 
                 if (data.stream != null) {
-                    console.log(`${streamerName} is streaming right now.`);
+                    console.log(`${streamerObj.name} is streaming right now.`);
                     $nameAndDetails.append($("<h6/>").text(data.stream.channel.status));
                     $streamerPanel.append($("<img />")
                         .addClass("status-icon")
