@@ -17,6 +17,34 @@ let ajaxBaseObject = {
     dataType: "jsonp"
 };
 
+function updateTab(streamerObj) {
+    // Adds streamer to its respective tab.
+    // Create base divs
+    let $streamerPanel = $("<div />").addClass("streamer-panel");
+    let $nameAndDetails = $("<div />").addClass("name-and-details");
+
+    // Add components of div
+    $streamerPanel.append($("<img />").attr("src", streamerObj.profilePic));
+
+    $nameAndDetails.append($("<h3 />").text(streamerObj.name));
+    if (streamerObj.hasOwnProperty("streamStatus")) {
+        $nameAndDetails.append($("<h6 />").text(streamerObj.streamStatus));
+    }
+    $streamerPanel.append($nameAndDetails);
+
+    // Add link to stream panel
+    let $wrappedStreamerPanel = $("<a />").attr("href", streamerObj.profileLink)
+        .addClass("channel-link");
+    $wrappedStreamerPanel.append($streamerPanel);
+
+    // Add to div according to stream status
+    $("#" + streamerObj.streamStatus).append($wrappedStreamerPanel);
+
+    // Add to all streams
+    let $clone = $wrappedStreamerPanel.clone();
+    $("#allStreams").append($clone);
+}
+
 $(document).ready(function() {
     // First, request the stream status
     streamerDataList.forEach(function(streamerObj) {
@@ -30,6 +58,7 @@ $(document).ready(function() {
                 console.log(streamerObj.name + " is streaming right now");
                 // Get pic from here
                 streamerObj.profilePic = data.stream.channel.logo;
+                updateTab(streamerObj);
             } else {
                 // If there's no stream, get pic from another request
                 streamerObj.streamStatus = "offline";
@@ -39,35 +68,10 @@ $(document).ready(function() {
                     streamerObj.name;
                 ajaxImgObj.success = function(data, status, xhr) {
                     streamerObj.profilePic = data.logo;
+                    updateTab(streamerObj);
                 };
                 $.ajax(ajaxImgObj);
             }
-            // Create base divs
-            let $streamerPanel = $("<div />").addClass("streamer-panel");
-            let $nameAndDetails = $("<div />").addClass("name-and-details");
-
-            // Add components of div
-            $streamerPanel.append($("<img />").attr("src", streamerObj.profilePic));
-
-            $nameAndDetails.append($("<h3 />").text(streamerObj.name));
-            if (streamerObj.hasOwnProperty("streamStatus")) {
-                $nameAndDetails.append($("<h6 />").text(streamerObj.streamStatus));
-            }
-            $streamerPanel.append($nameAndDetails);
-
-            // Add link to stream panel
-            let $wrappedStreamerPanel = $("<a />").attr("href", streamerObj.profileLink)
-                .addClass("channel-link");
-            $wrappedStreamerPanel.append($streamerPanel);
-
-            // Add to div according to stream status
-            $("#" + streamerObj.streamStatus).append($wrappedStreamerPanel);
-
-            // Add to all streams
-            let $clone = $wrappedStreamerPanel.clone();
-            $("#allStreams").append($clone);
-
-            console.log(streamerObj);
         };
         $.ajax(ajaxStatusObj);
     });
