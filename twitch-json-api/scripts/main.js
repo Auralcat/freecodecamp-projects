@@ -22,13 +22,15 @@ function updateTab(streamerObj) {
     // Create base divs
     let $streamerPanel = $("<div />").addClass("streamer-panel");
     let $nameAndDetails = $("<div />").addClass("name-and-details");
+    let $picContainer = $("<div />").addClass(".pic-container");
 
     // Add components of div
-    $streamerPanel.append($("<img />")
+    $picContainer.append($("<img />")
                           .addClass("profile-pic")
                           .attr("src", streamerObj.profilePic));
     $nameAndDetails.append($("<h3 />").text(streamerObj.name));
 
+    $streamerPanel.append($picContainer);
     $streamerPanel.append($nameAndDetails);
     if (streamerObj.hasOwnProperty("streamDetails")) {
         $nameAndDetails.append($("<h6 />").text(streamerObj.streamDetails));

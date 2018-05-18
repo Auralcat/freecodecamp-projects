@@ -14,6 +14,11 @@ img {
   justify-content: space-around;
   text-align: left; }
 
+.name-and-details {
+  /* You just need to set this for one of the components, the
+     others will follow */
+  flex-basis: 33%; }
+
 .profile-pic {
   border-radius: 80%;
   height: 64px;
