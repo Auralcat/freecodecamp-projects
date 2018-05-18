@@ -17,28 +17,31 @@ let ajaxBaseObject = {
     dataType: "jsonp"
 };
 
-// Hard copy the objects!
-let ajaxImgObj = JSON.parse(JSON.stringify(ajaxBaseObject));
-ajaxImgObj.url = "https://wind-bow.gomix.me/twitch-api/users/"
-                        + streamerObj.name;
-ajaxImgObj.success = function(data, status, xhr) {
-    streamerObj.profilePic = data.logo;
-};
-
-let ajaxStatusObj = JSON.parse(JSON.stringify(ajaxBaseObject));
-ajaxStatusObj.url = "https://wind-bow.gomix.me/twitch-api/streams/"
-                        + streamerObj.name;
-ajaxStatusObj.success = function(data, status, xhr) {
-    if (data.stream != null) {
-        streamerObj.streamStatus = "online";
-    } else {
-        streamerObj.streamStatus = "offline";
-    }
-};
-
 $(document).ready(function() {
-    $.when($.ajax(ajaxImgObj), $.ajax(ajaxStatusObj)).done(function() {
-        streamerDataList.forEach(function(streamerObj) {
+    // First, request the stream status
+    streamerDataList.forEach(function(streamerObj) {
+
+        let ajaxStatusObj = JSON.parse(JSON.stringify(ajaxBaseObject));
+        ajaxStatusObj.url = "https://wind-bow.gomix.me/twitch-api/streams/" +
+            streamerObj.name;
+        ajaxStatusObj.success = function(data, status, xhr) {
+            if (data.stream != null) {
+                streamerObj.streamStatus = "online";
+                console.log(streamerObj.name + " is streaming right now");
+                // Get pic from here
+                streamerObj.profilePic = data.stream.channel.logo;
+            } else {
+                // If there's no stream, get pic from another request
+                streamerObj.streamStatus = "offline";
+
+                let ajaxImgObj = JSON.parse(JSON.stringify(ajaxBaseObject));
+                ajaxImgObj.url = "https://wind-bow.gomix.me/twitch-api/users/" +
+                    streamerObj.name;
+                ajaxImgObj.success = function(data, status, xhr) {
+                    streamerObj.profilePic = data.logo;
+                };
+                $.ajax(ajaxImgObj);
+            }
             // Create base divs
             let $streamerPanel = $("<div />").addClass("streamer-panel");
             let $nameAndDetails = $("<div />").addClass("name-and-details");
@@ -58,12 +61,14 @@ $(document).ready(function() {
             $wrappedStreamerPanel.append($streamerPanel);
 
             // Add to div according to stream status
-            console.log(streamerObj);
             $("#" + streamerObj.streamStatus).append($wrappedStreamerPanel);
 
             // Add to all streams
             let $clone = $wrappedStreamerPanel.clone();
             $("#allStreams").append($clone);
-        });
+
+            console.log(streamerObj);
+        };
+        $.ajax(ajaxStatusObj);
     });
 });
