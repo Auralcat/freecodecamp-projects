@@ -26,6 +26,17 @@ function getImageLinks(ajaxBaseObject) {
     return out;
 }
 
+function hasStreamerPic(link, streamerName) {
+    let hasCustomPic = link.indexOf(streamerName.toLowerCase()) !== -1;
+    let hasDefaultPic = link.indexOf("user-default-pictures") !== -1;
+
+    console.log("Checking " + link + " for " + streamerName);
+    if (hasCustomPic) {
+        console.log("Pic for " + streamerName + " is " + link);
+    }
+    return hasCustomPic || hasDefaultPic;
+}
+
 $(document).ready(function() {
     let imageLinkArr = getImageLinks(ajaxBaseObject);
     console.log(imageLinkArr);
@@ -38,7 +49,7 @@ $(document).ready(function() {
             let $nameAndDetails = $("<div />").addClass("name-and-details");
 
             // Add components of div
-            let imageLink = imageLinkArr.find(link => link.indexOf(streamerName) !== -1);
+            let imageLink = imageLinkArr.find(link => hasStreamerPic(link, streamerName));
             $streamerPanel.append($("<img />").attr("src", imageLink));
 
             $nameAndDetails.append($("<h3 />").text(streamerName));
