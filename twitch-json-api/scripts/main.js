@@ -29,10 +29,12 @@ function updateTab(streamerObj) {
                           .attr("src", streamerObj.profilePic));
     $nameAndDetails.append($("<h3 />").text(streamerObj.name));
 
+    $streamerPanel.append($nameAndDetails);
     if (streamerObj.hasOwnProperty("streamDetails")) {
         $nameAndDetails.append($("<h6 />").text(streamerObj.streamDetails));
+        // Add check mark
+        $streamerPanel.append($("<img />").attr("src", "assets/img/check.svg"));
     }
-    $streamerPanel.append($nameAndDetails);
 
     // Add link to stream panel
     let $wrappedStreamerPanel = $("<a />").attr("href", streamerObj.profileLink)
