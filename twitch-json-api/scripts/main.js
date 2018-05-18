@@ -25,10 +25,10 @@ function updateTab(streamerObj) {
 
     // Add components of div
     $streamerPanel.append($("<img />").attr("src", streamerObj.profilePic));
-
     $nameAndDetails.append($("<h3 />").text(streamerObj.name));
-    if (streamerObj.hasOwnProperty("streamStatus")) {
-        $nameAndDetails.append($("<h6 />").text(streamerObj.streamStatus));
+
+    if (streamerObj.hasOwnProperty("streamDetails")) {
+        $nameAndDetails.append($("<h6 />").text(streamerObj.streamDetails));
     }
     $streamerPanel.append($nameAndDetails);
 
@@ -55,7 +55,8 @@ $(document).ready(function() {
         ajaxStatusObj.success = function(data, status, xhr) {
             if (data.stream != null) {
                 streamerObj.streamStatus = "online";
-                console.log(streamerObj.name + " is streaming right now");
+                // Get details from here
+                streamerObj.streamDetails = data.stream.channel.status;
                 // Get pic from here
                 streamerObj.profilePic = data.stream.channel.logo;
                 updateTab(streamerObj);
