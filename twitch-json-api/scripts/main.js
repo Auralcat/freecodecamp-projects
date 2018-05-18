@@ -17,10 +17,12 @@ let ajaxBaseObject = {
 };
 
 function getImageLinks(ajaxBaseObject) {
-    streamerDataList.forEach(function(streamerName) {
-        ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/users/" + streamerName;
+    // Add the image link to each object.
+    streamerDataList.forEach(function(streamerObj) {
+        ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/users/"
+                             + streamerObj.name;
         ajaxBaseObject.success = function(data, status, xhr) {
-            imageLinkArr.push(data.logo);
+            streamerObj.profilePic = data.logo;
         };
         $.ajax(ajaxBaseObject);
     });
