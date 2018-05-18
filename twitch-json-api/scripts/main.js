@@ -1,5 +1,6 @@
 let streamerList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
                     "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
+let imageLinkArr = [];
 
 // Create a base Ajax request object to keep it DRY
 let ajaxBaseObject = {
@@ -12,18 +13,13 @@ let ajaxBaseObject = {
 };
 
 function getImageLinks(ajaxBaseObject) {
-    let out = [];
-
     streamerList.forEach(function(streamerName) {
         ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/users/" + streamerName;
         ajaxBaseObject.success = function(data, status, xhr) {
-            out.push(data.logo);
+            imageLinkArr.push(data.logo);
         };
         $.ajax(ajaxBaseObject);
     });
-
-    // Request images
-    return out;
 }
 
 function hasStreamerPic(link, streamerName) {
@@ -38,45 +34,46 @@ function hasStreamerPic(link, streamerName) {
 }
 
 $(document).ready(function() {
-    let imageLinkArr = getImageLinks(ajaxBaseObject);
-    console.log(imageLinkArr);
+    $.when(getImageLinks(ajaxBaseObject)).done(function() {
+        console.log(imageLinkArr);
 
-    streamerList.forEach(function(streamerName) {
-        ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/streams/" + streamerName;
-        ajaxBaseObject.success = function(data, status, xhr) {
-            let $streamerPanel = $("<div />").addClass("streamer-panel");
-            let streamerLink = "https://twitch.tv/" + streamerName;
-            let $nameAndDetails = $("<div />").addClass("name-and-details");
+        streamerList.forEach(function(streamerName) {
+            ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/streams/" + streamerName;
+            ajaxBaseObject.success = function(data, status, xhr) {
+                let $streamerPanel = $("<div />").addClass("streamer-panel");
+                let streamerLink = "https://twitch.tv/" + streamerName;
+                let $nameAndDetails = $("<div />").addClass("name-and-details");
 
-            // Add components of div
-            let imageLink = imageLinkArr.find(link => hasStreamerPic(link, streamerName));
-            $streamerPanel.append($("<img />").attr("src", imageLink));
+                // Add components of div
+                let imageLink = imageLinkArr.find(link => hasStreamerPic(link, streamerName));
+                $streamerPanel.append($("<img />").attr("src", imageLink));
 
-            $nameAndDetails.append($("<h3 />").text(streamerName));
-            $streamerPanel.append($nameAndDetails);
+                $nameAndDetails.append($("<h3 />").text(streamerName));
+                $streamerPanel.append($nameAndDetails);
 
-            // Add link to stream panel
-            let $wrappedStreamerPanel = $("<a />").attr("href", streamerLink)
-                .addClass("channel-link");
-            $wrappedStreamerPanel.append($streamerPanel);
+                // Add link to stream panel
+                let $wrappedStreamerPanel = $("<a />").attr("href", streamerLink)
+                    .addClass("channel-link");
+                $wrappedStreamerPanel.append($streamerPanel);
 
-            if (data.stream != null) {
-                console.log(`${streamerName} is streaming right now.`);
-                $nameAndDetails.append($("<h6/>").text(data.stream.channel.status));
-                $streamerPanel.append($("<img />")
-                    .addClass("status-icon")
-                    .attr("src", "assets/img/check.svg"));
-                $("#online").append($wrappedStreamerPanel);
-            } else {
-                $("#offline").append($wrappedStreamerPanel);
-            }
+                if (data.stream != null) {
+                    console.log(`${streamerName} is streaming right now.`);
+                    $nameAndDetails.append($("<h6/>").text(data.stream.channel.status));
+                    $streamerPanel.append($("<img />")
+                        .addClass("status-icon")
+                        .attr("src", "assets/img/check.svg"));
+                    $("#online").append($wrappedStreamerPanel);
+                } else {
+                    $("#offline").append($wrappedStreamerPanel);
+                }
 
-            // Add to all streams
-            let $clone = $wrappedStreamerPanel.clone();
-            $("#allStreams").append($clone);
-        };
+                // Add to all streams
+                let $clone = $wrappedStreamerPanel.clone();
+                $("#allStreams").append($clone);
+            };
 
-        // Request stream status
-        $.ajax(ajaxBaseObject);
+            // Request stream status
+            $.ajax(ajaxBaseObject);
+        });
     });
 });
