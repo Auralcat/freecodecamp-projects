@@ -1,8 +1,9 @@
 let streamerDataList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
-    "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"
+                        "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"
 ].map(function(streamerName) {
     return {
-        name: streamerName
+        name: streamerName,
+        profileLink: "https://twitch.tv/" + streamerName
     };
 });
 
@@ -37,10 +38,7 @@ ajaxStatusObj.success = function(data, status, xhr) {
 
 $(document).ready(function() {
     $.when($.ajax(ajaxImgObj), $.ajax(ajaxStatusObj)).done(function() {
-        console.log(JSON.stringify(streamerDataList));
         streamerDataList.forEach(function(streamerObj) {
-            // Generate the link
-            streamerObj.profileLink = "https://twitch.tv/" + streamerObj.name;
             // Create base divs
             let $streamerPanel = $("<div />").addClass("streamer-panel");
             let $nameAndDetails = $("<div />").addClass("name-and-details");
