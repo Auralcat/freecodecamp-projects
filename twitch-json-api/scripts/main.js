@@ -30,14 +30,19 @@ function requestResources(ajaxBaseObject) {
         ajaxImgObj.success = function(data, status, xhr) {
             streamerObj.profilePic = data.logo;
         };
-        // Request images
-        $.ajax(ajaxImgObj);
 
         ajaxStatusObj.url = "https://wind-bow.gomix.me/twitch-api/streams/"
                              + streamerObj.name;
         ajaxStatusObj.success = function(data, status, xhr) {
-            streamerObj.profilePic = data.logo;
+            if (data.stream != null) {
+                streamerObj.streamStatus = "online";
+            } else {
+                streamerObj.streamStatus = "offline";
+            }
         };
+
+        // Request images
+        $.ajax(ajaxImgObj);
 
         // Request stream status
         $.ajax(ajaxStatusObj);
@@ -65,16 +70,6 @@ $(document).ready(function() {
                     .addClass("channel-link");
                 $wrappedStreamerPanel.append($streamerPanel);
 
-                if (data.stream != null) {
-                    console.log(`${streamerObj.name} is streaming right now.`);
-                    $nameAndDetails.append($("<h6/>").text(data.stream.channel.status));
-                    $streamerPanel.append($("<img />")
-                        .addClass("status-icon")
-                        .attr("src", "assets/img/check.svg"));
-                    $("#online").append($wrappedStreamerPanel);
-                } else {
-                    $("#offline").append($wrappedStreamerPanel);
-                }
 
                 // Add to all streams
                 let $clone = $wrappedStreamerPanel.clone();
