@@ -24,7 +24,9 @@ function updateTab(streamerObj) {
     let $nameAndDetails = $("<div />").addClass("name-and-details");
 
     // Add components of div
-    $streamerPanel.append($("<img />").attr("src", streamerObj.profilePic));
+    $streamerPanel.append($("<img />")
+                          .addClass("profile-pic")
+                          .attr("src", streamerObj.profilePic));
     $nameAndDetails.append($("<h3 />").text(streamerObj.name));
 
     if (streamerObj.hasOwnProperty("streamDetails")) {

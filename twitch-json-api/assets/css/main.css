@@ -14,6 +14,11 @@ img {
   justify-content: space-around;
   text-align: left; }
 
+.profile-pic {
+  border-radius: 80%;
+  height: 64px;
+  width: 64px; }
+
 .name-and-details {
   display: flex;
   flex-direction: column; }
