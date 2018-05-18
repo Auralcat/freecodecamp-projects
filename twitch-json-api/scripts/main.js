@@ -35,7 +35,14 @@ function updateTab(streamerObj) {
     if (streamerObj.hasOwnProperty("streamDetails")) {
         $nameAndDetails.append($("<h6 />").text(streamerObj.streamDetails));
         // Add check mark
-        $streamerPanel.append($("<img />").attr("src", "assets/img/check.svg"));
+        $streamerPanel.append($("<img />")
+                              .addClass("status-icon")
+                              .attr("src", "assets/img/check.svg"));
+    } else {
+        // Add red X
+        $streamerPanel.append($("<img />")
+                              .addClass("status-icon")
+                              .attr("src", "assets/img/red_x.svg"));
     }
 
     // Add link to stream panel
