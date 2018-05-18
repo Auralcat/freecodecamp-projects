@@ -16,26 +16,36 @@ let ajaxBaseObject = {
     dataType: "jsonp"
 };
 
-function getImageLinks(ajaxBaseObject) {
-    // Add the image link to each object.
+function requestResources(ajaxBaseObject) {
+    // Fetches the images, links and stream status from the API.
     streamerDataList.forEach(function(streamerObj) {
+        // Generate the link
+        streamerObj.profileLink = "https://twitch.tv/" + streamerObj.name;
+
         ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/users/"
                              + streamerObj.name;
         ajaxBaseObject.success = function(data, status, xhr) {
             streamerObj.profilePic = data.logo;
         };
+        // Request images
         $.ajax(ajaxBaseObject);
+
+        ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/streams/"
+                             + streamerObj.name;
+        ajaxBaseObject.success = function(data, status, xhr) {
+            streamerObj.profilePic = data.logo;
+        };
     });
 }
 
 $(document).ready(function() {
-    $.when(getImageLinks(ajaxBaseObject)).done(function() {
+    $.when(requestResources(ajaxBaseObject)).done(function() {
 
         streamerDataList.forEach(function(streamerObj) {
             ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/streams/" + streamerObj.name;
             ajaxBaseObject.success = function(data, status, xhr) {
                 let $streamerPanel = $("<div />").addClass("streamer-panel");
-                streamerObj.profileLink = "https://twitch.tv/" + streamerObj.name;
+
                 let $nameAndDetails = $("<div />").addClass("name-and-details");
 
                 // Add components of div
