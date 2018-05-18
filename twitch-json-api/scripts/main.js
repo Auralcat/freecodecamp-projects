@@ -16,25 +16,31 @@ let ajaxBaseObject = {
     dataType: "jsonp"
 };
 
+let ajaxImgObj = ajaxBaseObject;
+let ajaxStatusObj = ajaxBaseObject;
+
 function requestResources(ajaxBaseObject) {
     // Fetches the images, links and stream status from the API.
     streamerDataList.forEach(function(streamerObj) {
         // Generate the link
         streamerObj.profileLink = "https://twitch.tv/" + streamerObj.name;
 
-        ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/users/"
+        ajaxImgObj.url = "https://wind-bow.gomix.me/twitch-api/users/"
                              + streamerObj.name;
-        ajaxBaseObject.success = function(data, status, xhr) {
+        ajaxImgObj.success = function(data, status, xhr) {
             streamerObj.profilePic = data.logo;
         };
         // Request images
-        $.ajax(ajaxBaseObject);
+        $.ajax(ajaxImgObj);
 
-        ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/streams/"
+        ajaxStatusObj.url = "https://wind-bow.gomix.me/twitch-api/streams/"
                              + streamerObj.name;
-        ajaxBaseObject.success = function(data, status, xhr) {
+        ajaxStatusObj.success = function(data, status, xhr) {
             streamerObj.profilePic = data.logo;
         };
+
+        // Request stream status
+        $.ajax(ajaxStatusObj);
     });
 }
 
