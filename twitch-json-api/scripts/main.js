@@ -35,17 +35,17 @@ $(document).ready(function() {
             ajaxBaseObject.url = "https://wind-bow.gomix.me/twitch-api/streams/" + streamerObj.name;
             ajaxBaseObject.success = function(data, status, xhr) {
                 let $streamerPanel = $("<div />").addClass("streamer-panel");
-                let streamerLink = "https://twitch.tv/" + streamerObj.name;
+                streamerObj.profileLink = "https://twitch.tv/" + streamerObj.name;
                 let $nameAndDetails = $("<div />").addClass("name-and-details");
 
                 // Add components of div
-                $streamerPanel.append($("<img />").attr("src", imageLink));
+                $streamerPanel.append($("<img />").attr("src", streamerObj.profilePic));
 
                 $nameAndDetails.append($("<h3 />").text(streamerObj.name));
                 $streamerPanel.append($nameAndDetails);
 
                 // Add link to stream panel
-                let $wrappedStreamerPanel = $("<a />").attr("href", streamerLink)
+                let $wrappedStreamerPanel = $("<a />").attr("href", streamerObj.profileLink)
                     .addClass("channel-link");
                 $wrappedStreamerPanel.append($streamerPanel);
 
