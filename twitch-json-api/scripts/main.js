@@ -47,6 +47,7 @@ function updateTab(streamerObj) {
 
     // Add link to stream panel
     let $wrappedStreamerPanel = $("<a />").attr("href", streamerObj.profileLink)
+            .attr("id", streamerObj.name)
         .addClass("channel-link");
     $wrappedStreamerPanel.append($streamerPanel);
 
