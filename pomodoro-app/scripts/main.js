@@ -38,9 +38,10 @@ $(document).ready(function() {
     let shortBreakTime = defaultShortBreakTime * 60 * 1000;
     let longBreakTime = defaultLongBreakTime * 60 * 1000;
     let currentInterval;
-    let completedPomodoros = 0;
+    let completedPomodoros = 3;
 
     $("#visor").text(showTime(timer));
+    $("#completedPomodoros").text("Completed pomodoros: " + completedPomodoros);
 
     $("#startPomodoro").click(function() {
         currentInterval = setInterval(function() {
@@ -81,6 +82,7 @@ $(document).ready(function() {
                         }
                     }, 1000);
                 }
+                $("#completedPomodoros").text("Completed pomodoros: " + completedPomodoros);
             }
         }, 1000);
     });
