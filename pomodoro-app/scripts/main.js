@@ -2,7 +2,7 @@ let defaultPomodoroTime = 25;
 let defaultShortBreakTime = 5;
 let defaultLongBreakTime = 15;
 
-function countTime(timer) {
+function countTime(timer, endFunction) {
     // Returns the interval object
 }
 
@@ -50,7 +50,7 @@ $(document).ready(function() {
                         timer = defaultPomodoroTime * 60 * 1000;
                         $("#visor").text(showTime(timer));
                     }
-                });
+                }, 1000);
             }
         }, 1000);
     });
