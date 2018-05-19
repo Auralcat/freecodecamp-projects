@@ -1,17 +1,25 @@
 let defaultPomodoroTime = 25;
 let defaultBreakTime = 5;
 
-function showTime(visor) {
-    let minutes, seconds = visor.val().split(":");
-    if (seconds <= 0) {
-        seconds = 59;
-        minutes -= 1;
-    }
-    visor.val(`${minutes}:${seconds}`);
+function showTime(rawTime) {
+    // Receives raw time and returns the formatted string
+    let minutes = rawTime / 60000;
+    let seconds = rawTime - minutes;
+    return `${minutes}:${seconds}`;
 }
 
 $(document).ready(function() {
     $("#startPomodoro").click(function() {
+        let timer = defaultPomodoroTime * 60 * 1000;
 
+        setInterval(function() {
+            // Reduce the time for each tick
+            timer -= 1000;
+            $("#visor").text(showTime(timer));
+            // Finish counting when timer hits 0.
+            if (timer === 0) {
+                clearInterval();
+            }
+        }, 1000);
     });
 });
