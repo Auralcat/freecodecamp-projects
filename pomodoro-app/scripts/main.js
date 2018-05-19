@@ -52,7 +52,6 @@ $(document).ready(function() {
             if (timer <= 0) {
                 clearInterval(currentInterval);
                 $("#visorHeader").text("Break time!");
-                $("#visor").text(showTime(shortBreakTime));
 
                 // If 3 pomodoros have been completed, do a long break
                 if (completedPomodoros === 3) {
