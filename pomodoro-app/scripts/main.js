@@ -4,16 +4,6 @@ let defaultLongBreakTime = 15;
 
 function countTime(timer) {
     // Returns the interval object
-    let outputInterval = setInterval(function() {
-        // Reduce the time for each tick
-        timer -= 1000;
-        $("#visor").text(showTime(timer));
-        // Finish counting when timer hits 0.
-        if (timer <= 0) {
-            clearInterval(outputInterval);
-        }
-    }, 1000);
-    return outputInterval;
 }
 
 function showTime(rawTime) {
@@ -38,14 +28,31 @@ $(document).ready(function() {
     let timer = defaultPomodoroTime * 60 * 1000;
     let shortBreakTime = defaultShortBreakTime * 60 * 1000;
     let longBreakTime = defaultLongBreakTime * 60 * 1000;
+    let currentInterval;
 
     $("#visor").text(showTime(timer));
 
     $("#startPomodoro").click(function() {
-        let currentInterval = countTime(timer);
-        $("#visorHeader").text("Break time!");
-        $("#visor").text(showTime(shortBreakTime));
-        currentInterval = countTime(shortBreakTime);
+        currentInterval = setInterval(function() {
+            // Reduce the time for each tick
+            timer -= 1000;
+            $("#visor").text(showTime(timer));
+            // Finish counting when timer hits 0.
+            if (timer <= 0) {
+                clearInterval(currentInterval);
+                $("#visorHeader").text("Break time!");
+                $("#visor").text(showTime(shortBreakTime));
+                currentInterval = setInterval(function() {
+                    shortBreakTime -= 1000;
+                    $("#visor").text(showTime(shortBreakTime));
+                    if (shortBreakTime <= 0) {
+                        clearInterval(currentInterval);
+                        timer = defaultPomodoroTime * 60 * 1000;
+                        $("#visor").text(showTime(timer));
+                    }
+                });
+            }
+        }, 1000);
     });
 
     $("#stopPomodoro").click(function() {
