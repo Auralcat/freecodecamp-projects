@@ -38,6 +38,7 @@ $(document).ready(function() {
     let shortBreakTime = defaultShortBreakTime * 60 * 1000;
     let longBreakTime = defaultLongBreakTime * 60 * 1000;
     let currentInterval;
+    let completedPomodoros = 0;
 
     $("#visor").text(showTime(timer));
 
@@ -51,17 +52,35 @@ $(document).ready(function() {
                 clearInterval(currentInterval);
                 $("#visorHeader").text("Break time!");
                 $("#visor").text(showTime(shortBreakTime));
-                currentInterval = setInterval(function() {
-                    shortBreakTime -= 1000;
-                    $("#visor").text(showTime(shortBreakTime));
-                    if (shortBreakTime <= 0) {
-                        clearInterval(currentInterval);
-                        // Reset everything
-                        timer = defaultPomodoroTime * 60 * 1000;
-                        shortBreakTime = defaultPomodoroTime * 60 * 1000;
-                        $("#visor").text(showTime(timer));
-                    }
-                }, 1000);
+
+                // If 3 pomodoros have been completed, do a long break
+                if (completedPomodoros === 3) {
+                    completedPomodoros = 0;
+                    currentInterval = setInterval(function() {
+                        longBreakTime -= 1000;
+                        $("#visor").text(showTime(longBreakTime));
+                        if (shortBreakTime <= 0) {
+                            clearInterval(currentInterval);
+                            // Reset everything
+                            timer = defaultPomodoroTime * 60 * 1000;
+                            longBreakTime = defaultLongBreakTime * 60 * 1000;
+                            $("#visor").text(showTime(timer));
+                        }
+                    }, 1000);
+                } else {
+                    currentInterval = setInterval(function() {
+                        shortBreakTime -= 1000;
+                        $("#visor").text(showTime(shortBreakTime));
+                        if (shortBreakTime <= 0) {
+                            completedPomodoros += 1;
+                            clearInterval(currentInterval);
+                            // Reset everything
+                            timer = defaultPomodoroTime * 60 * 1000;
+                            shortBreakTime = defaultShortBreakTime * 60 * 1000;
+                            $("#visor").text(showTime(timer));
+                        }
+                    }, 1000);
+                }
             }
         }, 1000);
     });
