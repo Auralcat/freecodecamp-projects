@@ -20,21 +20,30 @@ function showTime(rawTime) {
 }
 
 $(document).ready(function() {
-    $("#startPomodoro").click(function() {
-        let timer = defaultPomodoroTime * 60 * 1000;
+    let countTime;
+    let timer;
 
-        setInterval(function() {
+    $("#startPomodoro").click(function() {
+        timer = defaultPomodoroTime * 60 * 1000;
+        $("#visor").text(showTime(timer));
+
+        countTime = setInterval(function() {
             // Reduce the time for each tick
             timer -= 1000;
             $("#visor").text(showTime(timer));
             // Finish counting when timer hits 0.
             if (timer === 0) {
-                clearInterval();
+                clearInterval(this);
             }
         }, 1000);
     });
 
     $("#stopPomodoro").click(function() {
+        clearInterval(countTime);
+    });
 
+    $("#resetPomodoro").click(function() {
+        timer = defaultPomodoroTime * 60 * 1000;
+        $("#visor").text(showTime(timer));
     });
 });
