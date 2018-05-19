@@ -3,6 +3,10 @@ $bootstrap-sass-asset-helper: false !default;
 // Variables
 // --------------------------------------------------
 
+/* Custom values */
+$my-body-bg:             #818ce8 !default;
+$my-stream-panel-bg:     #fccec2 !default;
+$my-text-color:          #fff    !default;
 
 //== Colors
 //
@@ -27,9 +31,9 @@ $brand-danger:          #d9534f !default;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #b4d455 !default;
+$body-bg:               $my-body-bg !default;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark !default;
+$text-color:            $my-text-color !default;
 
 //** Global textual link color.
 $link-color:            $brand-primary !default;
@@ -431,7 +435,7 @@ $nav-disabled-link-color:                   $gray-light !default;
 $nav-disabled-link-hover-color:             $gray-light !default;
 
 //== Tabs
-$nav-tabs-border-color:                     #ddd !default;
+$nav-tabs-border-color:                     darken($my-stream-panel-bg, 5%) !default;
 
 $nav-tabs-link-hover-border-color:          $gray-lighter !default;
 
