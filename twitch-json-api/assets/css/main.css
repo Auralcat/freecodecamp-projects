@@ -12,6 +12,7 @@ img {
   box-shadow: 0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: space-around;
+  padding: 16px;
   text-align: left; }
 
 .name-and-details {
