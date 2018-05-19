@@ -2,8 +2,17 @@ let defaultPomodoroTime = 25;
 let defaultShortBreakTime = 5;
 let defaultLongBreakTime = 15;
 
-function countTime(timer, endFunction) {
-    // Returns the interval object
+// Leave it like this for now
+function countTime(timer, callback) {
+    setInterval(function() {
+        // Reduce the time for each tick
+        timer -= 1000;
+        $("#visor").text(showTime(timer));
+        // Finish counting when timer hits 0.
+        if (timer <= 0) {
+            callback();
+        }
+    }, 1000);
 }
 
 function showTime(rawTime) {
@@ -47,7 +56,9 @@ $(document).ready(function() {
                     $("#visor").text(showTime(shortBreakTime));
                     if (shortBreakTime <= 0) {
                         clearInterval(currentInterval);
+                        // Reset everything
                         timer = defaultPomodoroTime * 60 * 1000;
+                        shortBreakTime = defaultPomodoroTime * 60 * 1000;
                         $("#visor").text(showTime(timer));
                     }
                 }, 1000);
