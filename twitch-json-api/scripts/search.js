@@ -11,13 +11,21 @@ $(document).ready(function() {
         // Get contents from search box
         let searchTerm = $(this).val();
 
-        // Find the streamers which match the query.
-        let result = $("#allStreams").find($("#" + searchTerm));
-
-        // Show the div
         let $searchResults = $("<div />").attr("id", "searchResults")
                 .addClass("tab-pane fade in active show");
-        $searchResults.append(result);
+
+        // Find the streamers which match the query.
+        $("#allStreams").children().each(function() {
+            let regex = new RegExp(searchTerm, "i");
+            console.log(regex.test($(this).attr("id")));
+            if (regex.test($(this).attr("id"))) {
+                // This is necessary so the panel doesn't vanish!
+                let result = $(this).clone();
+                $searchResults.append(result);
+            }
+        });
+
+        // Show the div
         $(".tab-content").append($searchResults);
     });
 });
