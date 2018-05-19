@@ -3,8 +3,8 @@ let defaultBreakTime = 5;
 
 function showTime(rawTime) {
     // Receives raw time and returns the formatted string
-    let minutes = rawTime / 60000;
-    let seconds = rawTime - minutes;
+    let minutes = Math.floor(rawTime / 60000);
+    let seconds = Math.floor(rawTime % 60000) / 1000;
     return `${minutes}:${seconds}`;
 }
 
