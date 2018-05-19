@@ -5,7 +5,18 @@ function showTime(rawTime) {
     // Receives raw time and returns the formatted string
     let minutes = Math.floor(rawTime / 60000);
     let seconds = Math.floor(rawTime % 60000) / 1000;
-    return `${minutes}:${seconds}`;
+    let out = [];
+    if (minutes < 10) {
+        out.push("0" + minutes);
+    } else {
+        out.push(minutes);
+    }
+    if (seconds < 10) {
+        out.push("0" + seconds);
+    } else {
+        out.push(seconds);
+    }
+    return out.join(":");
 }
 
 $(document).ready(function() {
@@ -21,5 +32,9 @@ $(document).ready(function() {
                 clearInterval();
             }
         }, 1000);
+    });
+
+    $("#stopPomodoro").click(function() {
+
     });
 });
