@@ -21,11 +21,10 @@ function showTime(rawTime) {
 
 $(document).ready(function() {
     let countTime;
-    let timer;
+    let timer = defaultPomodoroTime * 60 * 1000;
+    $("#visor").text(showTime(timer));
 
     $("#startPomodoro").click(function() {
-        timer = defaultPomodoroTime * 60 * 1000;
-        $("#visor").text(showTime(timer));
 
         countTime = setInterval(function() {
             // Reduce the time for each tick
@@ -44,6 +43,12 @@ $(document).ready(function() {
 
     $("#resetPomodoro").click(function() {
         timer = defaultPomodoroTime * 60 * 1000;
+        $("#visor").text(showTime(timer));
+    });
+
+    $("#customizePomodoroLength").click(function() {
+        let inputLength = prompt("Type the desired pomodoro duration in minutes:");
+        timer = inputLength * 60 * 1000;
         $("#visor").text(showTime(timer));
     });
 });
