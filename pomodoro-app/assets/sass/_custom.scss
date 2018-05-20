@@ -1,4 +1,5 @@
 /* Variables */
+
 $visor-display-bg: #000;
 $visor-display-fg: #00f0d0;
 
@@ -18,19 +19,19 @@ body {
 }
 
 .tomato-img {
-    width: 26rem;
-    height: 100%;
     display: block;
+    height: 100%;
     opacity: 0.7;
+    width: 26rem;
 }
 
 .visor-panel {
     background-color: $visor-display-bg;
     border: 1px solid lighten($visor-display-bg, 15%);
+    bottom: 12rem;
     display: inline-block;
     padding: 8px 12px;
     position: relative;
-    bottom: 12rem;
 }
 
 .visor-display {
@@ -42,9 +43,10 @@ body {
 .btn-group-vertical {
     margin-top: 12px;
 }
+
 .vertical-align {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-around;
 }

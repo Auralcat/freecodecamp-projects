@@ -5811,18 +5811,18 @@ body {
   margin-bottom: -12rem; }
 
 .tomato-img {
-  width: 26rem;
-  height: 100%;
   display: block;
-  opacity: 0.7; }
+  height: 100%;
+  opacity: 0.7;
+  width: 26rem; }
 
 .visor-panel {
   background-color: #000;
   border: 1px solid #262626;
+  bottom: 12rem;
   display: inline-block;
   padding: 8px 12px;
-  position: relative;
-  bottom: 12rem; }
+  position: relative; }
 
 .visor-display {
   color: #00f0d0;
@@ -5833,9 +5833,9 @@ body {
   margin-top: 12px; }
 
 .vertical-align {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-around; }
 
 /*# sourceMappingURL=main.css.map */
