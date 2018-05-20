@@ -5806,11 +5806,22 @@ body {
 .custom-font {
   font-family: "Montserrat", sans-serif; }
 
+.tomato-timer {
+  display: inline-block; }
+
+.tomato-img {
+  width: 26rem;
+  height: 100%;
+  display: block;
+  opacity: 0.7; }
+
 .visor-panel {
   background-color: #000;
   border: 1px solid #262626;
   display: inline-block;
-  padding: 8px 12px; }
+  padding: 8px 12px;
+  position: relative;
+  bottom: 12rem; }
 
 .visor-display {
   color: #00f0d0;
