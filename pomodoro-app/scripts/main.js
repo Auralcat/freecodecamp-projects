@@ -2,15 +2,31 @@ let defaultPomodoroTime = 25;
 let defaultShortBreakTime = 5;
 let defaultLongBreakTime = 15;
 
-// Leave it like this for now
 function countTime(timer, callback) {
     setInterval(function() {
-        // Reduce the time for each tick
+        // reduce the time for each tick
         timer -= 1000;
         $("#visor").text(showTime(timer));
-        // Finish counting when timer hits 0.
+        // finish counting when timer hits 0.
         if (timer <= 0) {
             callback();
+        }
+    }, 1000);
+}
+
+function countBreakTime(mainTimer, breakTimer, currentInterval) {
+    // Call this inside the main count function
+    $("#visor").text(showTime(breakTimer));
+    currentInterval = setInterval(function() {
+        console.log("Ticking");
+        breakTimer -= 1000;
+        $("#visor").text(showTime(breakTimer));
+        if (breakTimer <= 0) {
+            // Reset everything
+            clearInterval(currentInterval);
+            mainTimer = defaultPomodoroTime * 60 * 1000;
+            breakTimer = defaultLongBreakTime * 60 * 1000;
+            $("#visor").text(showTime(mainTimer));
         }
     }, 1000);
 }
@@ -38,7 +54,7 @@ $(document).ready(function() {
     let shortBreakTime = defaultShortBreakTime * 60 * 1000;
     let longBreakTime = defaultLongBreakTime * 60 * 1000;
     let currentInterval;
-    let completedPomodoros = 3;
+    let completedPomodoros = 0;
 
     $("#visor").text(showTime(timer));
     $("#completedPomodoros").text("Completed pomodoros: " + completedPomodoros);
@@ -55,31 +71,10 @@ $(document).ready(function() {
 
                 // If 3 pomodoros have been completed, do a long break
                 if (completedPomodoros === 3) {
+                    countBreakTime(timer, longBreakTime, currentInterval);
                     completedPomodoros = 0;
-                    currentInterval = setInterval(function() {
-                        longBreakTime -= 1000;
-                        $("#visor").text(showTime(longBreakTime));
-                        if (shortBreakTime <= 0) {
-                            clearInterval(currentInterval);
-                            // Reset everything
-                            timer = defaultPomodoroTime * 60 * 1000;
-                            longBreakTime = defaultLongBreakTime * 60 * 1000;
-                            $("#visor").text(showTime(timer));
-                        }
-                    }, 1000);
                 } else {
-                    currentInterval = setInterval(function() {
-                        shortBreakTime -= 1000;
-                        $("#visor").text(showTime(shortBreakTime));
-                        if (shortBreakTime <= 0) {
-                            completedPomodoros += 1;
-                            clearInterval(currentInterval);
-                            // Reset everything
-                            timer = defaultPomodoroTime * 60 * 1000;
-                            shortBreakTime = defaultShortBreakTime * 60 * 1000;
-                            $("#visor").text(showTime(timer));
-                        }
-                    }, 1000);
+                    countBreakTime(timer, shortBreakTime, currentInterval);
                 }
                 $("#completedPomodoros").text("Completed pomodoros: " + completedPomodoros);
             }
