@@ -1,0 +1,35 @@
+/*
+Error: Invalid CSS after "...Variables.scss"": expected selector or at-rule, was "@import "_custo..."
+        on line 3 of sass/main.scss
+
+1: @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/";
+2: @import "_customVariables.scss"
+3: @import "_custom.scss"
+
+Backtrace:
+sass/main.scss:3
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/scss/parser.rb:1278:in `expected'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/scss/parser.rb:1208:in `expected'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/scss/parser.rb:42:in `parse'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/engine.rb:414:in `_to_tree'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:209:in `each'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:320:in `block in watch'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
+/home/lucas/.rvm/gems/ruby-2.4.1/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...Variables.scss\"\": expected selector or at-rule, was \"@import \"_custo...\"\A         on line 3 of sass/main.scss\A \A 1: @import \"../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/\";\A 2: @import \"_customVariables.scss\"\A 3: @import \"_custom.scss\""; }

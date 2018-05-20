@@ -1,0 +1,17 @@
+{
+  "name": "pomodoro-app",
+  "version": "1.0.0",
+  "description": "A simple Pomodoro timer website",
+  "main": "index.js",
+  "scripts": {
+    "test": "testr"
+  },
+  "keywords": [
+    "Pomodoro"
+  ],
+  "author": "Auralcat",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7"
+  }
+}
