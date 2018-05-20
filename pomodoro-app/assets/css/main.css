@@ -5816,6 +5816,9 @@ body {
   opacity: 0.8;
   width: 26rem; }
 
+.completed-pomodoros-panel {
+  margin-bottom: 12px; }
+
 .completed-pomodoro-img {
   width: 6rem; }
 
