@@ -8,6 +8,10 @@ body {
     text-align: center;
 }
 
+.custom-font {
+    font-family: "Montserrat", sans-serif;
+}
+
 .visor-panel {
     background-color: $visor-display-bg;
     border: 1px solid lighten($visor-display-bg, 15%);
@@ -19,4 +23,14 @@ body {
     color: $visor-display-fg;
     font-family: "IBM Plex Mono", monospace;
     font-size: 40px;
+}
+
+.btn-group-vertical {
+    margin-top: 12px;
+}
+.vertical-align {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
