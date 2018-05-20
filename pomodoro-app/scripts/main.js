@@ -35,15 +35,30 @@ function showTime(rawTime) {
     return out.join(":");
 }
 
+function showCompletedPomodoros(completedPomodoros) {
+    // Adds a small tomato icon to a div
+    let imgLink = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/"
+            + "Emojione_1F345.svg/120px-Emojione_1F345.svg.png";
+    // Clear old data first
+    $("#completedPomodoros").remove();
+    let $completedPomodoros = $("<div/>").attr("id", "completedPomodoros");
+    for (let i = 0; i < completedPomodoros; i++) {
+        $completedPomodoros.append(
+            $("<img />").attr("src", imgLink)
+        );
+    }
+    $(".completed-pomodoros-panel").append($completedPomodoros);
+};
+
 $(document).ready(function() {
     let initialTimer = defaultPomodoroTime;
     let initialShortBreakTime = defaultShortBreakTime;
     let initialLongBreakTime = defaultLongBreakTime;
     let currentInterval;
-    let completedPomodoros = 0;
+    let completedPomodoros = 8;
 
     $("#visor").text(showTime(defaultPomodoroTime));
-    $("#completedPomodoros").text("Completed pomodoros: " + completedPomodoros);
+    showCompletedPomodoros(completedPomodoros);
 
     $("#startPomodoro").click(function() {
         $("#visor").text(showTime(initialTimer));
@@ -66,7 +81,7 @@ $(document).ready(function() {
                     countBreakTime(initialTimer, initialShortBreakTime, currentInterval);
                     completedPomodoros += 1;
                 }
-                $("#completedPomodoros").text("Completed pomodoros: " + completedPomodoros);
+                showCompletedPomodoros(completedPomodoros);
             }
         }, 1000);
     });
