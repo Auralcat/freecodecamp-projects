@@ -5807,7 +5807,8 @@ body {
   font-family: "Montserrat", sans-serif; }
 
 .tomato-timer {
-  display: inline-block; }
+  display: inline-block;
+  margin-bottom: -12rem; }
 
 .tomato-img {
   width: 26rem;
