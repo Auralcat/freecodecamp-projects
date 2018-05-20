@@ -45,6 +45,7 @@ function showCompletedPomodoros(completedPomodoros) {
     for (let i = 0; i < completedPomodoros; i++) {
         $completedPomodoros.append(
             $("<img />").attr("src", imgLink)
+                .addClass("completed-pomodoro-img")
         );
     }
     $(".completed-pomodoros-panel").append($completedPomodoros);

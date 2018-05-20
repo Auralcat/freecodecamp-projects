@@ -25,6 +25,10 @@ body {
     width: 26rem;
 }
 
+.completed-pomodoro-img {
+    width: 6rem;
+}
+
 .visor-panel {
     background-color: $visor-display-bg;
     border: 1px solid lighten($visor-display-bg, 15%);
