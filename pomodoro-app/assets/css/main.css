@@ -5819,6 +5819,7 @@ body {
 .visor-panel {
   background-color: #000;
   border: 1px solid #262626;
+  border-radius: 2rem;
   bottom: 12rem;
   display: inline-block;
   padding: 8px 12px;

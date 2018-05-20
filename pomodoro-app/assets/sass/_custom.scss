@@ -28,6 +28,7 @@ body {
 .visor-panel {
     background-color: $visor-display-bg;
     border: 1px solid lighten($visor-display-bg, 15%);
+    border-radius: 2rem;
     bottom: 12rem;
     display: inline-block;
     padding: 8px 12px;
