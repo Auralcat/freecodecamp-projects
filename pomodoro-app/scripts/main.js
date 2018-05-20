@@ -56,7 +56,7 @@ $(document).ready(function() {
     let initialShortBreakTime = defaultShortBreakTime;
     let initialLongBreakTime = defaultLongBreakTime;
     let currentInterval;
-    let completedPomodoros = 8;
+    let completedPomodoros = 0;
 
     $("#visor").text(showTime(defaultPomodoroTime));
     showCompletedPomodoros(completedPomodoros);
@@ -75,13 +75,12 @@ $(document).ready(function() {
                 $("#visorHeader").text("Break time!");
 
                 // If 3 pomodoros have been completed, do a long break
-                if (completedPomodoros === 3) {
+                if (completedPomodoros % 4 === 0) {
                     countBreakTime(initialTimer, initialLongBreakTime, currentInterval);
-                    completedPomodoros = 0;
                 } else {
                     countBreakTime(initialTimer, initialShortBreakTime, currentInterval);
-                    completedPomodoros += 1;
                 }
+                completedPomodoros += 1;
                 showCompletedPomodoros(completedPomodoros);
             }
         }, 1000);
