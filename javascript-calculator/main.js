@@ -29,15 +29,13 @@ let [ $visor, $funcCE ] = [...rawMiscSelectors];
 let opRegex = "[\\+\\-x\\÷]";
 
 const endsWithOperationSign = str => {
-    // Retorna um booleano avaliando se o string termina com um sinal
-    // de operação e não termina com um dígito
+    // Returns a boolean telling if the string ends with an operation sign
     let hasOpSigns =  new RegExp(opRegex).test(str.slice(-1));
     let hasDigits = /[0-9]/.test(str.slice(-1));
     return hasOpSigns && !hasDigits;
 };
 
 function addCharToVisor() {
-    // Adiciona o caractere ao visor, independente de tipo
     if ($visor.value == "0") {
         $visor.value = this.innerHTML;
     } else if (endsWithOperationSign($visor.value) &&
@@ -55,12 +53,12 @@ const executeCE = () => {
 
 // Functions related to visor processing
 const getSigns = mainString => {
-    // Retorna um array com os sinais das operações em ordem
+    // Returns an array with ordered operation signs
     return Array.from(new Set(mainString.match(/[\+\-\x\÷]/g)));
 };
 
 const extractOperations = (signArray, opString) => {
-    // Retorna um array com as ocorrências de operações dentro do string
+    // Counts the occurrences of the operations in the string
     let out = [];
 
     signArray.forEach(s => {
@@ -73,7 +71,7 @@ const extractOperations = (signArray, opString) => {
 };
 
 const pickOperation = (matchesArray) => {
-    // Retorna o string com a operação com maior prioridade
+    // Picks the string with the highest priority operation
     const hasFirstPriorityOps = str => str.includes("x") || str.includes("÷");
     const hasSecPriorityOps = str => str.includes("+") || str.includes("-");
 
@@ -86,7 +84,7 @@ const pickOperation = (matchesArray) => {
 };
 
 const compute = opString => {
-    // Retorna o resultado da operação
+    // Returns the operation's result
     let signal = opString.match(new RegExp(opRegex)).pop();
     switch (signal) {
     case '+':
@@ -103,35 +101,34 @@ const compute = opString => {
 };
 
 const calculate = opString => {
-    // Executa as operações dentro do visor na ordem:
-    // - Multiplicação e divisão
-    // - Adição e subtração
-    // Também segue as operações da esquerda pra direita.
+    // Executes the operations inside the visor following this order:
+    // - Multiplication and division
+    // - Addition and subtraction
+    // Also does operations from left to right.
 
     const calculateStep = buf => {
-        // Primeiro busque as operações dentro do string
+        // First get the operations inside the string
         let matchedSigns = getSigns(buf);
 
-        // Caso de saída (se não achar nenhum operador)
+        // Edge case
         if (matchedSigns.length == 0) return buf;
 
-        // Se o primeiro número do string for negativo, retorne "E"
+        // If number is less than zero, return error.
         if (buf.startsWith('-')) return "Error!";
 
-        // Extraia as operações
+        // Extract operations
         let opMatches = extractOperations(matchedSigns, buf);
 
-        // Pegue a função com maior prioridade
+        // Get the highest priority operation
         let calculateThis = pickOperation(opMatches);
 
-        // Calcule o resultado desta operação
+        // Get that operation's result
         let opResult = compute(calculateThis);
 
-        // Coloque o resultado da operação no lugar da operação bruta em
-        // uma nova variável
+        // Store the result in a new var
         let newStepString = buf.replace(calculateThis, opResult);
 
-        // Repita o processo
+        // Repeat the process
         return calculateStep(newStepString);
     };
 
@@ -139,7 +136,7 @@ const calculate = opString => {
 };
 
 const showCalculationResult = () => {
-    // Substitui o string de operações pelo string de resultado
+    // Replaces the operation string with its result
     $visor.value = calculate($visor.value);
 };
 
