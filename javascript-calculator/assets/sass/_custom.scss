@@ -1,1 +1,19 @@
 /* Custom code goes here */
+
+.op-button {
+    /* Background styles */
+    position: relative;
+    display: inline-block;
+    padding: 15px 25px;
+    background-color: green;
+    background-image: linear-gradient(green, lightgreen);
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+.op-button:after {
+
+}
