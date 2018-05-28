@@ -2,8 +2,8 @@
 
 .op-button {
     /* Background styles */
-    background-color: green;
-    background-image: linear-gradient(green, lightgreen);
+    background-color: #f42560;
+    background-image: linear-gradient(#f42560, lighten(#f42560, 30%));
     border-radius: 3px;
     box-shadow: 0 1px 4px -2px #333;
     color: #fff;
@@ -19,11 +19,16 @@
 }
 
 .op-button:after {
-    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.2));
     content: '';
     height: 50%;
     left: 2px;
     position: absolute;
     top: 2px;
     width: calc(100% - 4px);
+}
+
+.op-button:hover {
+    background: linear-gradient(#073, #0fa);
+    transition: 0.3s;
 }
