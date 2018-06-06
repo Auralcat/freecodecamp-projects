@@ -14,19 +14,36 @@
             <p id="description">My awesome subtitle</p>
         </header>
         <form method="post" id="survey-form" action="">
-            <label for="name" id="name-label">Name: </label>
-            <!-- To use regexes to validate a field, use the pattern attribute. -->
-            <input requred id="name" name="" pattern="[A-za-z-0-9]+\s[A-Za-z-'0-9]+" type="text" value="" placeholder="firstname lastname" />
-            <label for="email" id="email-label">Email: </label>
-            <input required id="email" name="email" type="email" value="" placeholder="Insert your email here" />
-            <label for="number" id="number-label">Random number: </label>
-            <input required id="number" min="21" max="64" name="number" type="number" value="" placeholder="Insert a number here" />
-            <label for="dropdown">Dropdown menu</label>
-            <select>
-                <option value="Foo">Foo</option>
-                <option value="Bar">Bar</option>
-                <option value="Baz">Baz</option>
-            </select>
+            <fieldset>
+                <label for="name" id="name-label">Name: </label>
+                <!-- To use regexes to validate a field, use the pattern attribute. -->
+                <input requred id="name" name="" pattern="[A-za-z-0-9]+\s[A-Za-z-'0-9]+" type="text" value="" placeholder="firstname lastname" />
+                <label for="email" id="email-label">Email: </label>
+                <input required id="email" name="email" type="email" value="" placeholder="Insert your email here" />
+                <label for="number" id="number-label">Random number: </label>
+                <input required id="number" min="21" max="64" name="number" type="number" value="" placeholder="Insert a number here" />
+            </fieldset>
+            <fieldset>
+                <label for="dropdown">Dropdown menu</label>
+                <select>
+                    <option value="Foo">Foo</option>
+                    <option value="Bar">Bar</option>
+                    <option value="Baz">Baz</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="radio">Radio Button</label>
+                <label for="">Grupo 1</label>
+                <input name="grupo-1" type="radio" value="">Item 1</input>
+                <input name="grupo-1" type="radio" value="">Item 2</input>
+                <input name="grupo-1" type="radio" value="">Item 3</input>
+            </fieldset>
+            <fieldset>
+                <label for="">Grupo 2</label>
+                <input name="grupo-2" type="radio" value="">Item 1</input>
+                <input name="grupo-2" type="radio" value="">Item 2</input>
+                <input name="grupo-2" type="radio" value="">Item 3</input>
+            </fieldset>
         </form>
     </main>
 </body>
