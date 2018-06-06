@@ -12,12 +12,12 @@
                 <p id="description">My awesome subtitle</p>
             </header>
             <form method="post" id="survey-form" action="">
-                <label for="name">Name: </label>
+                <label for="name" id="name-label">Name: </label>
                 <!-- To use regexes to validate a field, use the pattern attribute. -->
                 <input requred id="name" name="" pattern="[A-za-z-0-9]+\s[A-Za-z-'0-9]+" type="text" value="" placeholder="firstname lastname"/>
-                <label for="email">Email: </label>
+                <label for="email" id="email-label">Email: </label>
                 <input required id="email" name="email" type="email" value="" placeholder="Insert your email here" />
-                <label for="number">Random number: </label>
+                <label for="number" id="number-label">Random number: </label>
                 <input required id="number" min="21" max="64" name="number" type="number" value="" placeholder="Insert a number here" />
             </form>
         </main>
