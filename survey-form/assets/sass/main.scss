@@ -1,3 +1,13 @@
 .survey-title {
     text-align: center;
 }
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.copyleft {
+    display: inline-block;
+    transform: rotate(180deg);
+}
