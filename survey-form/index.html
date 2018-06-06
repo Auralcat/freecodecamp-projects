@@ -15,6 +15,7 @@
         </header>
         <form method="post" id="survey-form" action="">
             <fieldset>
+                <legend>Main details</legend>
                 <label for="name" id="name-label">Name: </label>
                 <!-- To use regexes to validate a field, use the pattern attribute. -->
                 <input requred id="name" name="" pattern="[A-za-z-0-9]+\s[A-Za-z-'0-9]+" type="text" value="" placeholder="firstname lastname" />
@@ -32,17 +33,19 @@
                 </select>
             </fieldset>
             <fieldset>
-                <label for="radio">Radio Button</label>
-                <label for="">Grupo 1</label>
-                <input name="grupo-1" type="radio" value="">Item 1</input>
-                <input name="grupo-1" type="radio" value="">Item 2</input>
-                <input name="grupo-1" type="radio" value="">Item 3</input>
-            </fieldset>
-            <fieldset>
-                <label for="">Grupo 2</label>
-                <input name="grupo-2" type="radio" value="">Item 1</input>
-                <input name="grupo-2" type="radio" value="">Item 2</input>
-                <input name="grupo-2" type="radio" value="">Item 3</input>
+                <legend for="radio">Radio Button</legend>
+                <div>
+                  <label for="">Grupo 1</label>
+                  <input name="grupo-1" type="radio" value="">Item 1</input>
+                  <input name="grupo-1" type="radio" value="">Item 2</input>
+                  <input name="grupo-1" type="radio" value="">Item 3</input>
+                </div>
+                <div>
+                  <label for="">Grupo 2</label>
+                  <input name="grupo-2" type="radio" value="">Item 1</input>
+                  <input name="grupo-2" type="radio" value="">Item 2</input>
+                  <input name="grupo-2" type="radio" value="">Item 3</input>
+                </div>
             </fieldset>
             <fieldset>
                 <legend>Checkboxes</legend>
