@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <title>Survey Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/skeleton.css" rel="stylesheet"/>
-    <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="assets/css/skeleton.css" rel="stylesheet" />
+    <link href="assets/css/main.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -19,40 +19,47 @@
             <fieldset>
                 <legend>Main details</legend>
                 <div class="row">
-                    <label class="one-half column" for="name" id="name-label">Name: </label>
+                    <label class="one-third column" for="name" id="name-label">Name: </label>
                     <!-- To use regexes to validate a field, use the pattern attribute. -->
-                    <input class="one-half column" required id="name" name="" pattern="[A-za-z-0-9]+\s[A-Za-z-'0-9]+" type="text" value="" placeholder="firstname lastname" />
+                    <input class="two-thirds column" required id="name" name="" pattern="[A-za-z-0-9]+\s[A-Za-z-'0-9]+" type="text" value="" placeholder="firstname lastname" />
                 </div>
                 <div class="row">
-                    <label class="one-half column" for="email" id="email-label">Email: </label>
-                    <input class="one-half column" required id="email" name="email" type="email" value="" placeholder="Insert your email here" />
+                    <label class="one-third column" for="email" id="email-label">Email: </label>
+                    <input class="two-thirds column" required id="email" name="email" type="email" value="" placeholder="Insert your email here" />
                 </div>
             </fieldset>
             <fieldset>
-                <legend for="number" id="number-label">Random number: </legend>
-                <input required id="number" min="21" max="64" name="number" type="number" value="" placeholder="Insert a number here" />
-            </fieldset>
-            <fieldset>
-                <legend for="dropdown">Dropdown menu</legend>
-                <select>
-                    <option value="Foo">Foo</option>
-                    <option value="Bar">Bar</option>
-                    <option value="Baz">Baz</option>
-                </select>
+                <div class="row">
+                    <legend>Number field and dropdown menu</legend>
+                </div>
+                <div class="row">
+                    <div class="one-third column">
+                        <label for="number" id="number-label">Random number: </label>
+                        <input required id="number" min="21" max="64" name="number" type="number" value="" placeholder="Insert a number here" />
+                    </div>
+                    <div class="two-thirds column">
+                        <label for="dropdown">Dropdown menu</label>
+                        <select>
+                        <option value="Foo">Foo</option>
+                        <option value="Bar">Bar</option>
+                        <option value="Baz">Baz</option>
+                    </select>
+                    </div>
+                </div>
             </fieldset>
             <fieldset>
                 <legend for="radio">Radio Button</legend>
                 <div>
-                  <label for="">Group 1</label>
-                  <input name="group-1" type="radio" value="">Item 1</input>
-                  <input name="group-1" type="radio" value="">Item 2</input>
-                  <input name="group-1" type="radio" value="">Item 3</input>
+                    <label for="">Group 1</label>
+                    <input name="group-1" type="radio" value="">Item 1</input>
+                    <input name="group-1" type="radio" value="">Item 2</input>
+                    <input name="group-1" type="radio" value="">Item 3</input>
                 </div>
                 <div>
-                  <label for="">Group 2</label>
-                  <input name="group-2" type="radio" value="">Item 1</input>
-                  <input name="group-2" type="radio" value="">Item 2</input>
-                  <input name="group-2" type="radio" value="">Item 3</input>
+                    <label for="">Group 2</label>
+                    <input name="group-2" type="radio" value="">Item 1</input>
+                    <input name="group-2" type="radio" value="">Item 2</input>
+                    <input name="group-2" type="radio" value="">Item 3</input>
                 </div>
             </fieldset>
             <fieldset>
@@ -65,7 +72,7 @@
                 <legend>Text Area</legend>
                 <textarea cols="80" id="" name="" rows="10"></textarea>
             </fieldset>
-            <input id="submit" name="" type="submit" value="Send"/>
+            <input id="submit" name="" type="submit" value="Send" />
         </form>
     </main>
 </body>
