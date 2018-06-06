@@ -13,9 +13,10 @@
             </header>
             <form method="post" id="survey-form" action="">
                 <label for="name">Name: </label>
-                <input id="name" name="" pattern="[A-za-z-0-9]+\s[A-Za-z-'0-9]+" type="text" value="" placeholder="firstname lastname"/>
+                <!-- To use regexes to validate a field, use the pattern attribute. -->
+                <input requred id="name" name="" pattern="[A-za-z-0-9]+\s[A-Za-z-'0-9]+" type="text" value="" placeholder="firstname lastname"/>
                 <label for="email">Email: </label>
-                <input id="email" name="" type="text" value="" placeholder="Insert your email here"/>
+                <input required id="email" name="email" type="email" value="" placeholder="Insert your email here" />
             </form>
         </main>
     </body>
