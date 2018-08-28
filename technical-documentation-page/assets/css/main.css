@@ -4,10 +4,10 @@ body {
   align-items: space-evenly;
   background-color: #Fffaf0; }
 
-#navbar {
+.sidebar {
   text-align: center; }
 
-#navbar header {
+.sidebar-header {
   padding-top: 7rem;
   font-size: 24px;
   display: flex;
@@ -15,8 +15,21 @@ body {
   width: 20rem;
   margin: auto; }
 
+pre {
+  width: 56rem;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: inline-block; }
+
+.main-section p {
+  overflow-wrap: break-word;
+  text-overflow: ellipsis; }
+
+.main-section:not(:last-child) {
+  margin-bottom: 8rem; }
+
 @media only screen and (max-width: 768px) {
-  #navbar {
+  .sidebar {
     display: none; }
 
   .main-doc {

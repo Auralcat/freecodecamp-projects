@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <nav id="navbar">
-        <header>
+    <nav class="sidebar" id="navbar">
+        <header class="sidebar-header">
             <a class="nav-link" href="#item1">Item1</a>
             <a class="nav-link" href="#item2">Item2</a>
             <a class="nav-link" href="#item3">Item3</a>
@@ -33,7 +33,19 @@
             <ul>
                 <li>Random item</li>
             </ul>
-            <code>Facilisis sed odio morbi quis commodo odio aenean sed adipiscing diam donec adipiscing? Morbi blandit cursus risus, at ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis!</code>
+            <pre>
+              <code>
+# Operators are really method invocations.
+a = 10
+b = 3.*(a).+(2)
+Kernel::printf("%d %d\n", a, b);
+
+# Type is still dynamic.
+b = String.new("A string")
+c = 'Another String'
+Kernel.print(b.+(" and ")::+(c).+("\n"))
+              </code>
+            </pre>
         </section>
         <section class="main-section" id="item2">
             <header>
@@ -48,7 +60,54 @@
             <ul>
                 <li>Random item</li>
             </ul>
-            <code>Facilisis sed odio morbi quis commodo odio aenean sed adipiscing diam donec adipiscing? Morbi blandit cursus risus, at ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis!</code>
+            <pre>
+              <code># Box drawing class.
+class Box
+  # Initialize to given size, and filled with spaces.
+  def initialize(w,h)
+    @wid = w
+    @hgt = h
+    @fill = ' '
+  end
+
+  # Change the fill.
+  def fill(f)
+    @fill = f
+    return self
+  end
+
+  # Rotate 90 degrees.
+  def flip
+    @wid, @hgt = @hgt, @wid
+    return self
+  end
+
+  # Generate (print) the box
+  def gen
+    line('+', @wid - 2, '-')
+    (@hgt - 2).times { line('|', @wid - 2, @fill) }
+    line('+', @wid - 2, '-')
+  end
+
+  # For printing
+  def to_s
+    fill = @fill
+    if fill == ' '
+      fill = '(spaces)'
+    end
+    return "Box " + @wid.to_s + "x" + @hgt.to_s + ", filled: " + fill
+  end
+
+private
+  # Print one line of the box.
+  def line(ends, count, fill)
+    print ends;
+    count.times { print fill }
+    print ends, "\n";
+  end
+end
+              </code>
+            </pre>
         </section>
         <section class="main-section" id="item3">
             <header>
@@ -63,7 +122,24 @@
             <ul>
                 <li>Random item</li>
             </ul>
-            <code>Facilisis sed odio morbi quis commodo odio aenean sed adipiscing diam donec adipiscing? Morbi blandit cursus risus, at ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis!</code>
+            <pre>
+              <code>s = "Hi there.  How are you?"
+print s.length, " [" + s + "]\n"
+
+# Selecting a character in a string gives an integer ascii code.
+print s[4], "\n"
+printf("%c\n", s[4])
+
+# The [n,l] substring gives the starting position and length.  The [n..m]
+# form gives a range of positions, inclusive.
+print "[" + s[4,4] + "] [" + s[6..15] + "]\n"
+
+print "Wow " * 3, "\n"
+
+print s.index("there"), " ", s.index("How"), " ", s.index("bogus"), "\n"
+
+print s.reverse, "\n"</code>
+            </pre>
         </section>
         <section class="main-section" id="item4">
             <header>
@@ -78,7 +154,22 @@
             <ul>
                 <li>Random item</li>
             </ul>
-            <code>Facilisis sed odio morbi quis commodo odio aenean sed adipiscing diam donec adipiscing? Morbi blandit cursus risus, at ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis!</code>
+            <pre>
+              <code># Get the parts of speech
+print "Please enter a past-tense verb: "
+verb = gets.chomp
+print "Please enter a noun: "
+noun = gets.chomp
+print "Please enter a proper noun: "
+prop_noun = gets.chomp
+print "Please enter a an adverb: "
+adv = gets.chomp
+
+# Make the sentence.
+print "#{prop_noun} got a #{noun} and\n#{verb} #{adv} around the block.\n"
+
+              </code>
+            </pre>
         </section>
         <section class="main-section" id="item5">
             <header>
@@ -93,7 +184,26 @@
             <ul>
                 <li>Random item</li>
             </ul>
-            <code>Facilisis sed odio morbi quis commodo odio aenean sed adipiscing diam donec adipiscing? Morbi blandit cursus risus, at ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis!</code>
+            <pre>
+              <code>a = [ 45, 3, 19, 8 ]
+b = [ 'sam', 'max', 56, 98.9, 3, 10, 'jill' ]
+print (a + b).join(' '), "\n"
+print a[2], " ", b[4], " ", b[-2], "\n"
+print a.sort.join(' '), "\n"
+a << 57 << 9 << 'phil'
+print "A: ", a.join(' '), "\n"
+
+b << 'alex' << 48 << 220
+print "B: ", b.join(' '), "\n"
+print "pop: ", b.pop, "\n"
+print "shift: ", b.shift, "\n"
+print "C: ", b.join(' '), "\n"
+
+b.delete_at(2)
+b.delete('alex')
+print "D: ", b.join(' '), "\n"
+              </code>
+            </pre>
         </section>
     </main>
 </body>
