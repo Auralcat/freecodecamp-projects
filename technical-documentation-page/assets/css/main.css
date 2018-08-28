@@ -1,8 +1,6 @@
-.main-doc {
+body {
+  margin: 0px;
   display: flex;
-  align-items: center; }
-
-.main-doc:first-child {
-  margin-left: auto; }
+  align-items: space-evenly; }
 
 /*# sourceMappingURL=main.css.map */
