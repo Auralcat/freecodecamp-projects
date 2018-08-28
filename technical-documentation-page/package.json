@@ -1,0 +1,22 @@
+{
+  "name": "technical-documentation-page",
+  "version": "1.0.0",
+  "description": "A technical documentation page project for FreeCodeCamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Auralcat/freecodecamp-projects.git"
+  },
+  "author": "Auralcat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Auralcat/freecodecamp-projects/issues"
+  },
+  "homepage": "https://github.com/Auralcat/freecodecamp-projects#readme",
+  "dependencies": {
+    "node-sass": "^4.9.3"
+  }
+}
