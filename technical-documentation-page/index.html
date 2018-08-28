@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <title>Technical Documentation Project</title>
+    <!-- HighlightJS style -->
+    <link href="./node_modules/highlightjs/styles/github.css" rel="stylesheet"/>
     <link href="./assets/css/normalize.css" rel="stylesheet" />
     <link href="./assets/css/skeleton.css" rel="stylesheet" />
     <link href="./assets/css/main.css" rel="stylesheet" />
@@ -34,7 +36,7 @@
                 <li>Random item</li>
             </ul>
             <pre>
-              <code>
+              <code class="ruby">
 # Operators are really method invocations.
 a = 10
 b = 3.*(a).+(2)
@@ -61,7 +63,7 @@ Kernel.print(b.+(" and ")::+(c).+("\n"))
                 <li>Random item</li>
             </ul>
             <pre>
-              <code># Box drawing class.
+              <code class="ruby"># Box drawing class.
 class Box
   # Initialize to given size, and filled with spaces.
   def initialize(w,h)
@@ -123,15 +125,15 @@ end
                 <li>Random item</li>
             </ul>
             <pre>
-              <code>s = "Hi there.  How are you?"
+              <code class="ruby">s = "Hi there.  How are you?"
 print s.length, " [" + s + "]\n"
 
 # Selecting a character in a string gives an integer ascii code.
 print s[4], "\n"
 printf("%c\n", s[4])
 
-# The [n,l] substring gives the starting position and length.  The [n..m]
-# form gives a range of positions, inclusive.
+# The [n,l] substring gives the starting position and length.
+# The [n..m] form gives a range of positions, inclusive.
 print "[" + s[4,4] + "] [" + s[6..15] + "]\n"
 
 print "Wow " * 3, "\n"
@@ -155,7 +157,7 @@ print s.reverse, "\n"</code>
                 <li>Random item</li>
             </ul>
             <pre>
-              <code># Get the parts of speech
+              <code class="ruby"># Get the parts of speech
 print "Please enter a past-tense verb: "
 verb = gets.chomp
 print "Please enter a noun: "
@@ -185,7 +187,7 @@ print "#{prop_noun} got a #{noun} and\n#{verb} #{adv} around the block.\n"
                 <li>Random item</li>
             </ul>
             <pre>
-              <code>a = [ 45, 3, 19, 8 ]
+              <code class="ruby">a = [ 45, 3, 19, 8 ]
 b = [ 'sam', 'max', 56, 98.9, 3, 10, 'jill' ]
 print (a + b).join(' '), "\n"
 print a[2], " ", b[4], " ", b[-2], "\n"
@@ -208,5 +210,6 @@ print "D: ", b.join(' '), "\n"
     </main>
 </body>
 <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-
+<script src="./node_modules/highlightjs/highlight.pack.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </html>

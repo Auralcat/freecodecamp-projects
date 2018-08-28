@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Auralcat/freecodecamp-projects#readme",
   "dependencies": {
+    "highlightjs": "^9.10.0",
     "node-sass": "^4.9.3"
   }
 }
