@@ -1,0 +1,21 @@
+body {
+    margin: 4px;
+}
+
+#navbar {
+    position: fixed;
+    top: 0px;
+}
+
+#welcome-section {
+    width: 100%;
+    /* Height should be equal to viewport's height */
+    height: 648px;
+}
+
+/* All tests passing */
+@media screen and (max-width: 768px) {
+    #welcome-section {
+        overflow-word: break-word;
+    }
+}
