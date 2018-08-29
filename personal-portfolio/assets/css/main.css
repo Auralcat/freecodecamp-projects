@@ -43,7 +43,15 @@ body {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
 
 .contact {
-  margin-top: 4rem; }
+  margin-top: 4rem;
+  font-family: Helvetica; }
+
+.social-media-buttons-container {
+  display: flex;
+  justify-content: space-around; }
+
+.contact h2 {
+  margin-bottom: 4rem; }
 
 .contact-details {
   color: #fff; }
@@ -65,7 +73,10 @@ footer {
 
 /* All tests passing */
 @media screen and (max-width: 768px) {
-  #welcome-section {
-    overflow-word: break-word; } }
+  .social-media-buttons-container {
+    flex-direction: column; }
+
+  .social-media-buttons-container:not(:last-child) {
+    margin-bottom: 4rem; } }
 
 /*# sourceMappingURL=main.css.map */
