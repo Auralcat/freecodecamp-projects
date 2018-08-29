@@ -10,6 +10,17 @@ body {
   /* Height should be equal to viewport's height */
   height: 648px; }
 
+.contact-details {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #abacab;
+  line-height: 100px;
+  text-align: center;
+  background-color: #c0ff33; }
+
 /* All tests passing */
 @media screen and (max-width: 768px) {
   #welcome-section {
