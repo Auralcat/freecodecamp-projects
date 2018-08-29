@@ -70,7 +70,9 @@ body {
   justify-content: space-around; }
 
 .contact h2 {
-  margin-bottom: 4rem; }
+  margin-bottom: 4rem;
+  /* This is a hack. */
+  margin-top: 36rem; }
 
 .contact-details {
   color: #fff; }
