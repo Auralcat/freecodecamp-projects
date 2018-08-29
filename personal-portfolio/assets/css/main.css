@@ -5,6 +5,9 @@ body {
 .align-center {
   text-align: center; }
 
+.copyleft {
+  transform: rotate(180); }
+
 .navbar {
   position: fixed;
   top: 0px; }
@@ -39,21 +42,23 @@ body {
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
 
-.contact-details--twitter {
-  background-color: cyan;
+.contact {
+  margin-top: 4rem; }
+
+.contact-details {
   color: #fff; }
+
+.contact-details--twitter {
+  background-color: cyan; }
 
 .contact-details--github {
-  background-color: #000;
-  color: #fff; }
+  background-color: #000; }
 
 .contact-details--telegram {
-  background-color: blue;
-  color: #fff; }
+  background-color: blue; }
 
 .contact-details--free-code-camp {
-  background-color: green;
-  color: #fff; }
+  background-color: green; }
 
 footer {
   margin-top: 4rem; }
