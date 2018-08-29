@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <nav id="navbar">
+    <nav id="navbar" class="navbar">
         <ul>
             <li>
                 <a href="#about">About</a>
@@ -23,7 +23,7 @@
             </li>
         </ul>
     </nav>
-    <section id="welcome-section">
+    <section id="welcome-section" class="welcome-section align-center">
         <h1>Some text</h1>
         <p>Subtitle</p>
     </section>
@@ -70,12 +70,22 @@
         </div>
     </section>
     <section id="contact" class="contact">
-        <a id="profile-link" class="contact-details" href="https://github.com/Auralcat"><i class="fa fa-github">GitHub</i></a>
-        <a class="contact-details" href="https://www.freecodecamp.org/auralcat"><i class="fa fa-free-code-camp">FreeCodeCamp</i></a>
-        <a class="contact-details" href="https://t.me/mretka"><i class="fa fa-telegram">Telegram</i></a>
-        <a class="contact-details" href="https://twitter.com/miriamretka"><i class="fa fa-twitter">Twitter</i></a>
+      <div class="row">
+        <div class="three columns">
+          <a id="profile-link" class="contact-details" href="https://github.com/Auralcat"><i class="fa fa-github">GitHub</i></a>
+        </div>
+        <div class="three columns">
+          <a class="contact-details" href="https://twitter.com/miriamretka"><i class="fa fa-twitter">Twitter</i></a>
+        </div>
+        <div class="three columns">
+          <a class="contact-details" href="https://t.me/mretka"><i class="fa fa-telegram">Telegram</i></a>
+        </div>
+        <div class="three columns">
+          <a class="contact-details" href="https://www.freecodecamp.org/auralcat"><i class="fa fa-free-code-camp">FreeCodeCamp</i></a>
+        </div>
+      </div>
     </section>
-    <footer>Example portfolio, feel free to use/modify it
+    <footer class="align-center">Example portfolio, feel free to use/modify it
         <p>&copy; Created for <a href="https://www.freecodecamp.com/" target="_blank">FreeCodeCamp</a></p>
     </footer>
 </body>

@@ -1,11 +1,15 @@
 body {
   margin: 4px; }
 
-#navbar {
+/* Utility classes */
+.align-center {
+  text-align: center; }
+
+.navbar {
   position: fixed;
   top: 0px; }
 
-#welcome-section {
+.welcome-section {
   width: 100%;
   /* Height should be equal to viewport's height */
   height: 648px; }
@@ -27,8 +31,8 @@ body {
   transition: 0.3s;
   border-radius: 4px;
   text-align: center;
-  /* height: 320px; */
-  /* width: 240px; */
+  height: 28rem;
+  margin-top: 4rem;
   padding: 16px 0; }
 
 .card-container, .card-image {
@@ -49,6 +53,9 @@ body {
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px; }
+
+footer {
+  margin-top: 4rem; }
 
 /* All tests passing */
 @media screen and (max-width: 768px) {
