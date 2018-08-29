@@ -10,9 +10,27 @@ body {
 
 .navbar {
   position: fixed;
-  top: 0px; }
+  top: 0;
+  right: 0;
+  width: 100%;
+  background-color: aliceblue;
+  height: 4rem; }
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: end; }
+
+.navbar ul li a {
+  text-decoration: none;
+  margin: 0 4rem;
+  font-size: 2rem; }
+
+.navbar ul li a:hover {
+  text-decoration: underline; }
 
 .welcome-section {
+  margin-top: 2rem;
   width: 100%;
   /* Height should be equal to viewport's height */
   height: 648px; }
@@ -43,8 +61,7 @@ body {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
 
 .contact {
-  margin-top: 4rem;
-  font-family: Helvetica; }
+  margin-top: 4rem; }
 
 .social-media-buttons-container {
   display: flex;
@@ -74,9 +91,10 @@ footer {
 /* All tests passing */
 @media screen and (max-width: 768px) {
   .social-media-buttons-container {
-    flex-direction: column; }
+    flex-direction: column;
+    align-content: space-evenly; }
 
-  .social-media-buttons-container:not(:last-child) {
-    margin-bottom: 4rem; } }
+  .social-media-buttons-container button {
+    margin-bottom: 1rem; } }
 
 /*# sourceMappingURL=main.css.map */
