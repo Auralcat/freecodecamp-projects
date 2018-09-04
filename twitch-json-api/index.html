@@ -4,7 +4,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Stylesheet comes from compiled SCSS -->
     <link href="assets/css/main.css" rel="stylesheet" />
     <title>Use the Twitch.tv JSON API</title>
   </head>
@@ -12,9 +11,9 @@
   <body>
     <main class="container">
       <ul class="nav nav-tabs">
-        <li><a href="#allStreams" data-toggle="tab">All Streamers</a></li>
-        <li><a href="#online" data-toggle="tab">Currently streaming</a></li>
-        <li><a href="#offline" data-toggle="tab">Offline</a></li>
+        <li><a class="tab-title" href="#allStreams" data-toggle="tab">All Streamers</a></li>
+        <li><a class="tab-title" href="#online" data-toggle="tab">Currently streaming</a></li>
+        <li><a class="tab-title" href="#offline" data-toggle="tab">Offline</a></li>
       </ul>
       <section class="tab-content">
         <form class="navbar-form" action="" role="search">
@@ -37,10 +36,8 @@
       <p>Made by Miriam Retka</p>
     </footer>
   </body>
-  <!-- Load scripts -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" type="text/javascript"></script>
   <script type="text/javascript" src="scripts/main.js"></script>
   <script type="text/javascript" src="scripts/search.js"></script>
-
 </html>

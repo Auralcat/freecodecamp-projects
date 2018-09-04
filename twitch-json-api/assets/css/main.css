@@ -7,6 +7,9 @@ body {
 img {
   max-height: 100%; }
 
+.tab-title {
+  background-color: #cacff5; }
+
 .search-box {
   text-align: left; }
 
@@ -46,6 +49,11 @@ img {
 
 footer {
   margin-top: 3rem; }
+  footer a {
+    color: #00ff7f;
+    transition: 0.2; }
+    footer a:hover {
+      color: #00cc66; }
 
 /* Custom values */
 /*!

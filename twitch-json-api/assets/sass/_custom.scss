@@ -8,6 +8,10 @@ img {
     max-height: 100%;
 }
 
+.tab-title {
+    background-color: lighten(#818ce8, 17%);
+}
+
 .search-box {
     text-align: left;
 }
@@ -15,6 +19,7 @@ img {
 .search-text {
     margin: auto;
 }
+
 .streamer-panel {
     align-items: center;
     background-color: #e1b9f7;
@@ -54,4 +59,13 @@ img {
 
 footer {
     margin-top: 3rem;
+
+    a {
+        color: #00ff7f;
+        transition: 0.2;
+
+        &:hover {
+            color: darken(#00ff7f, 10%);
+        }
+    }
 }
