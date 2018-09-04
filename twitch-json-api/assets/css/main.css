@@ -44,6 +44,9 @@ img {
   color: #000;
   text-decoration: none; }
 
+footer {
+  margin-top: 3rem; }
+
 /* Custom values */
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)

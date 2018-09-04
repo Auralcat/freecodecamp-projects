@@ -1,0 +1,183 @@
+body {
+  margin: 0; }
+
+p {
+  font-size: 12px;
+  margin-bottom: 2rem; }
+
+h1 {
+  font-size: 44px;
+  font-weight: 600; }
+
+/* Shapes */
+.square-holder {
+  display: flex;
+  justify-content: space-between;
+  width: 32px; }
+
+.square {
+  background-color: #cfd0d0;
+  width: 4px;
+  height: 4px; }
+
+.learn-more-container {
+  display: flex;
+  align-items: center;
+  color: #ea625c;
+  width: 124px;
+  justify-content: space-between;
+  transition: 0.2s; }
+
+.learn-more-line {
+  height: 2px;
+  width: 32px;
+  background-color: #ea625c;
+  transition: 0.2s; }
+
+.container-extend {
+  width: 134px; }
+
+.line-extend {
+  width: 42px; }
+
+.learn-more-text {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -1px; }
+
+/* ----------------------------- */
+/* Push top content to the right */
+header, .hero-unit {
+  margin-left: 16rem; }
+
+header {
+  display: flex;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem; }
+
+.logo {
+  width: 2.5rem; }
+
+nav {
+  margin-left: auto;
+  margin-right: 17rem; }
+
+ul {
+  list-style-type: none;
+  display: flex;
+  margin-bottom: 0;
+  align-items: center; }
+
+li, li a, .search-box {
+  color: #999; }
+
+li {
+  margin: 0 12px; }
+
+li a {
+  text-decoration: none;
+  transition: 0.2s;
+  padding-bottom: 12px; }
+
+li a:hover {
+  border-bottom: 1px solid #999;
+  color: #595959;
+  transition: 0.2s; }
+
+/* Attr overriding seems to be more effective! */
+input[type="text"] {
+  border: 0;
+  border-bottom: 2px solid #bbb;
+  border-radius: 0;
+  padding: 0;
+  margin: 4px 0 0 0;
+  transition: 0.2s;
+  font-size: 16px;
+  width: 19rem; }
+
+input[type="text"]:hover {
+  color: #595959;
+  border-bottom-color: #7b7b7b; }
+
+input[type="text"]:focus {
+  color: #000;
+  border: 0;
+  border-bottom: 2px solid #595959;
+  margin-top: 4px; }
+
+.hero-unit {
+  position: relative;
+  top: 16%; }
+
+.button-custom-primary {
+  color: #fff;
+  background-color: #ea625c;
+  letter-spacing: -1px;
+  border: none;
+  border-radius: 0;
+  transition: 0.2s; }
+
+.button-custom-primary:hover {
+  background-color: #e4382f;
+  color: #fff; }
+
+.top-section {
+  border-bottom: 1px solid #e0dfdf;
+  background: url(../img/watches.jpg);
+  background-position-x: 76rem;
+  background-size: 48rem;
+  background-repeat: no-repeat;
+  height: 46rem; }
+
+/* Create a mixin with this. */
+.side-stripe-gray {
+  border-left: 2px solid #999; }
+  .side-stripe-gray p {
+    margin-left: 3rem;
+    width: 38rem;
+    color: #999; }
+
+.side-stripe-white {
+  border-left: 2px solid #fff; }
+  .side-stripe-white p {
+    margin-left: 3rem;
+    width: 38rem;
+    color: #fff; }
+
+.just-texts {
+  margin: 4rem 16rem; }
+
+.blurb-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-top: 4rem; }
+
+.blurb-and-preview {
+  display: flex;
+  align-items: center;
+  height: 60rem;
+  flex-basis: 30rem; }
+
+.title-and-para {
+  margin-right: 10rem; }
+
+.img-preview {
+  height: 50rem; }
+
+.bottom-section {
+  background: url(../img/runners.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60rem; }
+
+.text-section {
+  position: relative;
+  top: 38%;
+  left: 50%;
+  width: 50rem;
+  color: #fff; }
+
+/*# sourceMappingURL=main.css.map */
