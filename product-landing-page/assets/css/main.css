@@ -9,6 +9,10 @@ h1 {
   font-size: 44px;
   font-weight: 600; }
 
+footer {
+  margin-top: 3rem;
+  text-align: center; }
+
 /* Shapes */
 .square-holder {
   display: flex;
@@ -48,7 +52,8 @@ h1 {
 
 /* ----------------------------- */
 /* Push top content to the right */
-header, .hero-unit {
+header,
+.hero-unit {
   margin-left: 16rem; }
 
 header {
@@ -70,7 +75,9 @@ ul {
   margin-bottom: 0;
   align-items: center; }
 
-li, li a, .search-box {
+li,
+li a,
+.search-box {
   color: #999; }
 
 li {
@@ -134,17 +141,19 @@ input[type="text"]:focus {
 /* Create a mixin with this. */
 .side-stripe-gray {
   border-left: 2px solid #999; }
-  .side-stripe-gray p {
-    margin-left: 3rem;
-    width: 38rem;
-    color: #999; }
+
+.side-stripe-gray p {
+  margin-left: 3rem;
+  width: 38rem;
+  color: #999; }
 
 .side-stripe-white {
   border-left: 2px solid #fff; }
-  .side-stripe-white p {
-    margin-left: 3rem;
-    width: 38rem;
-    color: #fff; }
+
+.side-stripe-white p {
+  margin-left: 3rem;
+  width: 38rem;
+  color: #fff; }
 
 .just-texts {
   margin: 4rem 16rem; }
