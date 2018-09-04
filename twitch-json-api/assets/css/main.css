@@ -3641,7 +3641,7 @@ tbody.collapse.in {
     max-width: none; }
 
 .nav-tabs {
-  border-bottom: 1px solid #fbbaaa; }
+  border-bottom: 1px solid #818ce8; }
   .nav-tabs > li {
     float: left;
     margin-bottom: -1px; }
@@ -3651,7 +3651,7 @@ tbody.collapse.in {
       border: 1px solid transparent;
       border-radius: 4px 4px 0 0; }
       .nav-tabs > li > a:hover {
-        border-color: #eeeeee #eeeeee #fbbaaa; }
+        border-color: #eeeeee #eeeeee #818ce8; }
     .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
       color: #555555;
       background-color: #818ce8;

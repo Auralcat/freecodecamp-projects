@@ -435,7 +435,7 @@ $nav-disabled-link-color:                   $gray-light !default;
 $nav-disabled-link-hover-color:             $gray-light !default;
 
 //== Tabs
-$nav-tabs-border-color:                     darken($my-stream-panel-bg, 5%) !default;
+$nav-tabs-border-color:                     $my-body-bg !default;
 
 $nav-tabs-link-hover-border-color:          $gray-lighter !default;
 
