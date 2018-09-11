@@ -97,15 +97,22 @@ class App extends React.Component {
 
           <div className="control">
             <p>Power</p>
-            <div onClick={this.powerControl} className="select">
-              <div style={powerSlider} className="inner" />
+            <div onClick={this.powerControl}
+                 className="select">
+              <div style={powerSlider}
+                   className="inner" />
             </div>
           </div>
           <p id="display">
             {this.state.display}
           </p>
           <div className="volume-slider">
-            <input type="range" min="0" max="1" step="0.01" value={this.state.sliderVal} onChange={this.adjustVolume} />
+            <input type="range"
+                   min="0"
+                   max="1"
+                   step="0.01"
+                   value={this.state.sliderVal}
+                   onChange={this.adjustVolume} />
           </div>
           <div className="control">
             <p>Bank</p>
