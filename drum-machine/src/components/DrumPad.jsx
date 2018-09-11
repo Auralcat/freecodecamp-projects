@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { inactiveStyle, activeStyle } from '../consts.js';
 
 export class DrumPad extends React.Component {

@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import { DrumPad } from './components/DrumPad.jsx'
 import { bankOne, bankTwo } from './consts.js';
 import { PadBank } from './components/PadBank.jsx';
 

@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { DrumPad }  from './DrumPad.jsx';
 
 export class PadBank extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     let padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
         return (
