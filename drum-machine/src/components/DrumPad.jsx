@@ -1,68 +1,68 @@
 import React, { Component } from 'react';
+import { inactiveStyle, activeStyle } from '../consts.js';
 
 export class DrumPad extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      power: true,
-      display: String.fromCharCode(160),
-      currentPadBank: '',
-      currentPadBankId: 'Header Kit',
-      sliderVal: 0.3
+      padStyle: inactiveStyle
     }
-
-    // Bind them methods!
-    this.displayClipName = this.displayClipName.bind(this)
-    this.selectBank = this.selectBank.bind(this)
-    this.adjustVolume = this.adjustVolume.bind(this)
-    this.powerControl = this.powerControl.bind(this)
-    this.clearDisplay = this.clearDisplay.bind(this)
+    this.playSound = this.playSound.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.activatePad = this.activatePad.bind(this);
   }
-
-  powerControl() {
-
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress);
   }
-
-  displayClipName() {
-
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
   }
-
-  adjustVolume() {
-
+  handleKeyPress(e) {
+    if (e.keyCode === this.props.keyCode) {
+      this.playSound();
+    }
   }
-
-  selectBank() {
-
+  activatePad() {
+    if (this.props.power) {
+      this.state.padStyle.backgroundColor === 'orange' ?
+        this.setState({
+          padStyle: inactiveStyle
+        }) :
+        this.setState({
+          padStyle: activeStyle
+        });
+    } else {
+      this.state.padStyle.marginTop === 13 ?
+        this.setState({
+          padStyle: inactiveStyle
+        }) :
+        this.setState({
+          padStyle: {
+            height: 77,
+            marginTop: 13,
+            backgroundColor: 'grey',
+            boxShadow: "0 3px grey"
+          }
+        });
+    }
   }
-
-  clearDisplay() {
-
+  playSound(e) {
+    const sound = document.getElementById(this.props.keyTrigger);
+    sound.currentTime = 0;
+    sound.play();
+    this.activatePad();
+    setTimeout(() => this.activatePad(), 100);
+    this.props.updateDisplay(this.props.clipId.replace(/-/g, ' '));
   }
-
   render() {
-    return(
-    <div id="drum-machine" className="inner-container">
-    {/* <PadBank /> */}
-    <div className="logo">
-        <div className="inner-logo">{'Auralcat' + String.fromCharCode(160)}</div>
-    </div>
-    <div className="control">
-        <p>Power</p>
-        <div onClick="this.powerControl" className="select">
-            <div style="powerSlider" className="inner" />
-        </div>
-        <p id="display">{this.state.display}</p>
-        <div className="volume-slider">
-            <input max="1" min="0" name="volume" onChange={this.adjustVolume} step="0.01" type="range" value={this.state.sliderVal}/>
-        </div>
-    </div>
-    <div className="control">
-        <p>Bank</p>
-        <div className="select" onClick={ this.selectBank }>
-            <div style={ bankSlider } className="inner" />
-        </div>
-    </div>
-    </div>
+    return (
+      <div id={this.props.clipId}
+        onClick={this.playSound}
+        className="drum-pad"
+        style={this.state.padStyle} >
+          <audio className='clip' id={this.props.keyTrigger} src={this.props.clip}></audio>
+          {this.props.keyTrigger}
+      </div>
     )
   }
 }
