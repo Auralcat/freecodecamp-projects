@@ -1,5 +1,7 @@
 import React from 'react';
 import { DrumPad }  from './DrumPad.jsx';
+// Styles come from here:
+import '../styles/PadBank.css'
 
 export class PadBank extends React.Component {
   render() {

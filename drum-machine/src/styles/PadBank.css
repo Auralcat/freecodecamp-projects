@@ -1,0 +1,6 @@
+.pad-bank__pad {
+  padding: 1rem;
+  background-color: pink; }
+  .pad-bank__pad:hover {
+    background-color: orange;
+    transition: 0.2s; }

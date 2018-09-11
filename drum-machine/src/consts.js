@@ -98,19 +98,6 @@ const bankTwo = [{
   url: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3'
 }];
 
-const activeStyle = {
-  backgroundColor: 'orange',
-  boxShadow: "0 3px orange",
-  height: 77,
-  marginTop: 13
-}
-
-const inactiveStyle = {
-  backgroundColor: 'grey',
-  marginTop: 10,
-  boxShadow: "3px 3px 5px black"
-}
-
 module.exports = {
-  projectName, bankOne, bankTwo, activeStyle, inactiveStyle
+  projectName, bankOne, bankTwo
 }
