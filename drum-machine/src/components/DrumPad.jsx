@@ -11,17 +11,21 @@ export class DrumPad extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.activatePad = this.activatePad.bind(this);
   }
+
+  // Add and remove keydown events during pad lifecycle
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress);
   }
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyPress);
   }
+
   handleKeyPress(e) {
     if (e.keyCode === this.props.keyCode) {
       this.playSound();
     }
   }
+
   activatePad() {
     if (this.props.power) {
       this.state.padStyle.backgroundColor === 'orange' ?
