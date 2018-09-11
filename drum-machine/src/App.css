@@ -1,3 +1,14 @@
 /* Define you app's styles here. */
 .control {
   background-color: yellow; }
+
+.inner-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80vw;
+  margin: 25% auto;
+  background-color: crimson; }
+
+@media screen and (max-width: 600px) {
+  .inner-container {
+    flex-direction: column; } }
