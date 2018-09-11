@@ -1,6 +1,44 @@
 import React, { Component } from 'react';
 
 export class DrumPad extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      power: true,
+      display: String.fromCharCode(160),
+      currentPadBank: '',
+      currentPadBankId: 'Header Kit',
+      sliderVal: 0.3
+    }
+
+    // Bind them methods!
+    this.displayClipName = this.displayClipName.bind(this)
+    this.selectBank = this.selectBank.bind(this)
+    this.adjustVolume = this.adjustVolume.bind(this)
+    this.powerControl = this.powerControl.bind(this)
+    this.clearDisplay = this.clearDisplay.bind(this)
+  }
+
+  powerControl() {
+
+  }
+
+  displayClipName() {
+
+  }
+
+  adjustVolume() {
+
+  }
+
+  selectBank() {
+
+  }
+
+  clearDisplay() {
+
+  }
+
   render() {
     return(
     <div id="drum-machine" className="inner-container">
