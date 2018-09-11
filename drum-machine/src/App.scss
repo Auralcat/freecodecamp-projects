@@ -6,9 +6,14 @@
 .inner-container {
     display: flex;
     justify-content: space-evenly;
+    align-items: first baseline;
     width: 80vw;
     margin: 25% auto;
     background-color: crimson;
+}
+
+.controls-container {
+    text-align: center;
 }
 
 @media screen and (max-width: 600px) {
