@@ -9,7 +9,6 @@ export class DrumPad extends React.Component {
     }
     this.playSound = this.playSound.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.activatePad = this.activatePad.bind(this);
   }
 
   // Add and remove keydown events during pad lifecycle
@@ -26,38 +25,13 @@ export class DrumPad extends React.Component {
     }
   }
 
-  activatePad() {
-    if (this.props.power) {
-      this.state.padStyle.backgroundColor === 'orange' ?
-        this.setState({
-          padStyle: inactiveStyle
-        }) :
-        this.setState({
-          padStyle: activeStyle
-        });
-    } else {
-      this.state.padStyle.marginTop === 13 ?
-        this.setState({
-          padStyle: inactiveStyle
-        }) :
-        this.setState({
-          padStyle: {
-            height: 77,
-            marginTop: 13,
-            backgroundColor: 'grey',
-            boxShadow: "0 3px grey"
-          }
-        });
-    }
-  }
   playSound(e) {
     const sound = document.getElementById(this.props.keyTrigger);
     sound.currentTime = 0;
     sound.play();
-    this.activatePad();
-    setTimeout(() => this.activatePad(), 100);
     this.props.updateDisplay(this.props.clipId.replace(/-/g, ' '));
   }
+
   render() {
     return (
       <div id={this.props.clipId}

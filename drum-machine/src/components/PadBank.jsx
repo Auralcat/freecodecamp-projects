@@ -10,8 +10,7 @@ export class PadBank extends React.Component {
             clip={padBankArr[i].url}
             keyTrigger={padBankArr[i].keyTrigger}
             keyCode={padBankArr[i].keyCode}
-            updateDisplay={this.props.updateDisplay}
-            power={this.props.power} />
+            updateDisplay={this.props.updateDisplay} />
         )
       })
       return (
