@@ -36,7 +36,7 @@ export class DrumPad extends React.Component {
     return (
       <div id={this.props.clipId}
         onClick={this.playSound}
-        className="pad-bank__pad"
+        className="drum-pad"
         style={this.state.padStyle} >
           <audio className='clip' id={this.props.keyTrigger} src={this.props.clip}></audio>
           {this.props.keyTrigger}

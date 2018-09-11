@@ -1,12 +1,21 @@
 .pad-bank {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    margin: 20px;
+    width: 20rem;
 
-    &__pad {
-        padding: 1rem;
-        background-color: pink;
+}
 
-        &:hover {
-            background-color: orange;
-            transition: 0.2s;
-        }
+.drum-pad {
+    padding: 1rem;
+    background-color: pink;
+    text-align: center;
+    box-shadow: 2px 2px 8px darken(pink, 20%);
+
+    &:hover {
+        background-color: orange;
+        transition: 0.2s;
     }
 }

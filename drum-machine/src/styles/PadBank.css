@@ -1,6 +1,16 @@
-.pad-bank__pad {
+.pad-bank {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  margin: 20px;
+  width: 20rem; }
+
+.drum-pad {
   padding: 1rem;
-  background-color: pink; }
-  .pad-bank__pad:hover {
+  background-color: pink;
+  text-align: center;
+  box-shadow: 2px 2px 8px #ff5a77; }
+  .drum-pad:hover {
     background-color: orange;
     transition: 0.2s; }
