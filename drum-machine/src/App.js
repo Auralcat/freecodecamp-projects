@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { bankOne, bankTwo } from './consts.js';
 import { PadBank } from './components/PadBank.jsx';
+import { Display } from './components/Display.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -64,33 +65,33 @@ class App extends React.Component {
       });
     }
     return (
-      <div id="drum-machine" className="inner-container">
-        <PadBank
-          updateDisplay={this.displayClipName}
-          clipVolume={this.state.sliderVal}
-          currentPadBank={this.state.currentPadBank} />
+      <div>
+        <h1 style={{ textAlign: 'center' }}>Drum Machine App</h1>
+        <div id="drum-machine" className="inner-container">
+          <PadBank
+            updateDisplay={this.displayClipName}
+            clipVolume={this.state.sliderVal}
+            currentPadBank={this.state.currentPadBank} />
 
-        <div className="controls-container">
+          <div className="controls-container">
 
-          <p id="display">
-            {this.state.display}
-          </p>
-          <div className="volume-slider">
-            <input type="range"
-                   min="0"
-                   max="1"
-                   step="0.01"
-                   value={this.state.sliderVal}
-                   onChange={this.adjustVolume} />
-          </div>
-          <div className="control">
-            <p>Bank</p>
-            <div onClick={this.selectBank} className="select">
-              <div style={bankSlider} className="inner" />
+            <Display infoToDisplay={this.state.display} />
+            <div className="volume-slider">
+              <input type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value={this.state.sliderVal}
+                    onChange={this.adjustVolume} />
+            </div>
+            <div className="control">
+              <p>Bank</p>
+              <div onClick={this.selectBank} className="select">
+                <div style={bankSlider} className="inner" />
+              </div>
             </div>
           </div>
         </div>
-
       </div>
     )
   }
