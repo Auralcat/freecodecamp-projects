@@ -1,5 +1,5 @@
 import React from 'react';
-import { inactiveStyle, activeStyle } from '../consts.js';
+import { inactiveStyle } from '../consts.js';
 
 export class DrumPad extends React.Component {
   constructor(props) {

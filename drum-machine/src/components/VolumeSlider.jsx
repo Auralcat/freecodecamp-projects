@@ -5,7 +5,7 @@ export class VolumeSlider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        sliderVal: 100
+        sliderVal: 0.5
     }
   }
 
