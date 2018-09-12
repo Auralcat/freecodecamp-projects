@@ -3,6 +3,7 @@ import './App.css';
 import { bankOne, bankTwo } from './consts.js';
 import { PadBank } from './components/PadBank.jsx';
 import { Display } from './components/Display.jsx';
+import { VolumeSlider } from './components/VolumeSlider.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -74,16 +75,8 @@ class App extends React.Component {
             currentPadBank={this.state.currentPadBank} />
 
           <div className="controls-container">
-
             <Display infoToDisplay={this.state.display} />
-            <div className="volume-slider">
-              <input type="range"
-                    min="0"
-                    max="1"
-                    step="0.01"
-                    value={this.state.sliderVal}
-                    onChange={this.adjustVolume} />
-            </div>
+            <VolumeSlider sliderVal={this.state.sliderVal}/>
             <div className="control">
               <p>Bank</p>
               <div onClick={this.selectBank} className="select">
