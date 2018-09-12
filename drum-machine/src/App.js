@@ -16,8 +16,6 @@ class App extends React.Component {
     }
     this.displayClipName = this.displayClipName.bind(this);
     this.selectBank = this.selectBank.bind(this);
-    this.adjustVolume = this.adjustVolume.bind(this);
-    this.clearDisplay = this.clearDisplay.bind(this);
   }
 
   selectBank() {
@@ -40,31 +38,12 @@ class App extends React.Component {
     });
   }
 
-  adjustVolume(e) {
-    this.setState({
-      sliderVal: e.target.value,
-      display: "Volume: " + Math.round(e.target.value * 100)
-    });
-    setTimeout(() => this.clearDisplay(), 1000);
-  }
-
-  clearDisplay() {
-    this.setState({
-      display: String.fromCharCode(160)
-    });
-  }
-
   render() {
     const bankSlider = this.state.currentPadBank === bankOne ? {
       float: 'left'
     } : {
       float: 'right'
-    }; {
-      const clips = [].slice.call(document.getElementsByClassName('clip'));
-      clips.forEach(sound => {
-        sound.volume = this.state.sliderVal
-      });
-    }
+    };
     return (
       <div>
         <h1 style={{ textAlign: 'center' }}>Drum Machine App</h1>
