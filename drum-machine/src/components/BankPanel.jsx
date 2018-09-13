@@ -13,7 +13,8 @@ export class BankPanel extends React.Component {
             <div>
               <p>Bank</p>
               <div className="btn-group">
-            <BankSelector bankName="Smooth Piano Kit" callback={this.props.superCallback}/>
+                  <BankSelector bankName="Smooth Piano Kit" callback={this.props.superCallback}/>
+                  <BankSelector bankName="Heater Kit" callback={this.props.superCallback}/>
               </div>
             </div>
         )

@@ -56,7 +56,7 @@ class App extends React.Component {
           <div className="controls-container">
             <Display infoToDisplay={this.state.display} />
             <VolumeSlider sliderVal={this.state.sliderVal}/>
-            <BankPanel selectBank={ this.selectBank } superCallback={ (bankName) => this.setState({currentPadBankId: bankName}) }/>
+            <BankPanel selectBank={ this.selectBank } superCallback={ (bankName) => this.selectBank(bankName) }/>
           </div>
         </div>
       </div>
