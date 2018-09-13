@@ -1,9 +1,5 @@
 // coded by @no-stack-dub-sack (github) / @no_stack_sub_sack (codepen)
 // Adaptations: Auralcat (github)
-const projectName = 'drum-machine';
-
-// This is a browser feature, you can use it to persist state.
-localStorage.setItem('example_project', 'Drum Machine');
 
 const bankOne = [{
     keyCode: 81,
