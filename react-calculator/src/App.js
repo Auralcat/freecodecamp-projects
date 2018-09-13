@@ -30,8 +30,8 @@ class App extends Component {
       let isolatedDecimals = this.state.display.split(/[\+\-\/\*]/)
       let allowedDecimalsRegex = /^\d+(\.\d{1,9})?$/
       let regexTest = isolatedDecimals.every((n) => allowedDecimalsRegex.test(n))
-      console.log(isolatedDecimals, regexTest)
-      if (regexTest && this.state.display.split('').pop() !== '.') {
+      if (regexTest
+          && !isolatedDecimals.pop().split('').includes('.')) {
         this.setState({
           display: this.state.display + '.'
         })
