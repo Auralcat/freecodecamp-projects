@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      text: 'This is a sample text.\n\nDoes this work with other stuff?'
+      text: ''
     }
     this.getCurrentText = this.getCurrentText.bind(this)
   }
