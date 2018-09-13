@@ -14,7 +14,7 @@ export default class Editor extends Component {
 
     render() {
         return (
-            <textarea id="editor" cols="80" rows="10" name="editor" onChange={ this.handleChange }></textarea>
+            <textarea id="editor" cols="80" rows="10" value={ this.props.value } name="editor" onChange={ this.handleChange }></textarea>
         )
     }
 }
