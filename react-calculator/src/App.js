@@ -25,6 +25,16 @@ class App extends Component {
         display: '0'
       })
       break;
+    case '.':
+      // Check the preview string instead of the current one.
+      let isolatedDecimals = this.state.display.split(/[\+\-\/\*]/)
+      let allowedDecimalsRegex = /^\d+(\.\d{1,2})?$/
+      if (isolatedDecimals.every((n) => allowedDecimalsRegex.test(n))) {
+        this.setState({
+          display: this.state.display + '.'
+        })
+      }
+      break;
     default:
       if (this.state.display === '0') {
         this.setState({
