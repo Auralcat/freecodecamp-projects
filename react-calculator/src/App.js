@@ -9,23 +9,30 @@ class App extends Component {
     this.state = {
       display: '0'
     }
-  }
-  render() {
-    const numbersCollection = [
-      {
-        label: 'one',
-        callback() { return "Trurl?" }
-      },
-      {
-        label: 'two',
-        callback() { return "Trurl?" }
-      },
 
-    ]
+    this.updateDisplay = this.updateDisplay.bind(this)
+  }
+
+  updateDisplay(event) {
+    console.log(event);
+    this.setState({
+      display: this.state.display + event.target.value
+    })
+  }
+
+  render() {
+    const numbersCollection = ['zero', 'one', 'two', 'three', 'four', 'five',
+                               'six', 'seven', 'eight', 'nine']
+    const mappedNumbers = numbersCollection.map((num) => {
+      return {
+        name: num,
+        label: numbersCollection.indexOf(num),
+      }
+    })
     return (
       <div className="App">
         <Visor display={ this.state.display }/>
-        <ButtonPanel buttonArray={ numbersCollection }/>
+        <ButtonPanel buttonArray={ mappedNumbers } callback={ this.updateDisplay }/>
       </div>
     );
   }
