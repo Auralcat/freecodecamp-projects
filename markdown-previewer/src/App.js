@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import marked from 'marked';
 import './App.css';
 import Editor from './components/Editor.jsx'
+import Preview from './components/Preview.jsx'
 
 class App extends Component {
   constructor(props) {
@@ -26,9 +27,7 @@ class App extends Component {
           </header>
           <main>
             <Editor callback={ this.getCurrentText } />
-            <div id="preview">
-              { marked(this.state.text) }
-            </div>
+            <Preview callback={ marked } value={ this.state.text }/>
           </main>
       </div>
     );

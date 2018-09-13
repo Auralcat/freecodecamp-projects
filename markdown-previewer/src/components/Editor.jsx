@@ -3,22 +3,18 @@ import React, { Component } from 'react';
 export default class Editor extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            inputValue: 'Trurl?'
-        }
 
         this.handleChange = this.handleChange.bind(this)
     }
 
+    // The idea here is to pass the value from the editor to the App component.
     handleChange(event) {
-        this.setState({
-            inputValue: event.target.value
-        })
+        this.props.callback(event.target.value)
     }
 
     render() {
         return (
-            <textarea id="editor" name="editor" value={ this.state.value } onChange={ this.handleChange }></textarea>
+            <textarea id="editor" name="editor" onChange={ this.handleChange }></textarea>
         )
     }
 }
