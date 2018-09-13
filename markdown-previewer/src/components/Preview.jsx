@@ -16,7 +16,10 @@ export default class Preview extends Component {
     render() {
 
         return (
-            <div id="preview" dangerouslySetInnerHTML={this.createMarkup()}/>
+            <div>
+                <h3 style={ { textAlign: 'center' } }>Resulting markdown:</h3>
+                <div id="preview" dangerouslySetInnerHTML={this.createMarkup()}/>
+            </div>
         )
     }
 }
