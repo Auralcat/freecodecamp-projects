@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import marked from 'marked';
 import './App.css';
+import Editor from './components/Editor.jsx'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      text: 'This is a sample text.'
+      text: 'This is a sample text.\n\nDoes this work with other stuff?'
     }
     this.getCurrentText = this.getCurrentText.bind(this)
   }
@@ -23,8 +25,10 @@ class App extends Component {
               <h1>Markdown Previewer</h1>
           </header>
           <main>
-              <textarea id="editor" cols="80" name="editor" rows="10" value={ this.state.text }></textarea>
-            <textarea id="preview" cols="30" name="preview" rows="10" value={ marked( this.state.text ) } readonly=""></textarea>
+            <Editor callback={ this.getCurrentText } />
+            <div id="preview">
+              { marked(this.state.text) }
+            </div>
           </main>
       </div>
     );
