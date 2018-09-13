@@ -4,6 +4,7 @@ import { bankOne, bankTwo } from './consts.js';
 import { PadBank } from './components/PadBank.jsx';
 import { Display } from './components/Display.jsx';
 import { VolumeSlider } from './components/VolumeSlider.jsx';
+import { BankPanel } from './components/BankPanel.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,13 +13,12 @@ class App extends React.Component {
       display: String.fromCharCode(160),
       currentPadBank: bankOne,
       currentPadBankId: 'Heater Kit',
-      sliderVal: 0.3
     }
     this.displayClipName = this.displayClipName.bind(this);
     this.selectBank = this.selectBank.bind(this);
   }
 
-  selectBank() {
+  selectBank(callback) {
     this.state.currentPadBankId === 'Heater Kit' ?
       this.setState({
         currentPadBank: bankTwo,
@@ -56,12 +56,7 @@ class App extends React.Component {
           <div className="controls-container">
             <Display infoToDisplay={this.state.display} />
             <VolumeSlider sliderVal={this.state.sliderVal}/>
-            <div className="control">
-              <p>Bank</p>
-              <div onClick={this.selectBank} className="select">
-                <div style={bankSlider} className="inner" />
-              </div>
-            </div>
+            <BankPanel selectBank={ this.selectBank }/>
           </div>
         </div>
       </div>
