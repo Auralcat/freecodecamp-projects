@@ -22,13 +22,20 @@ class App extends Component {
   render() {
     return (
       <div>
-          <header>
+         <header className="app-header" >
               <h1>Markdown Previewer</h1>
           </header>
-          <main className="editor-and-preview">
-            <Editor callback={ this.getCurrentText } value={ this.state.text }/>
-            <Preview callback={ marked } value={ this.state.text }/>
+          <main className="row editor-and-preview">
+            <div className="one-half column">
+              <Editor callback={ this.getCurrentText } value={ this.state.text }/>
+            </div>
+            <div className="one-half column">
+              <Preview callback={ marked } value={ this.state.text }/>
+            </div>
           </main>
+        <footer className="app-footer">
+          <p>Made by Auralcat</p>
+        </footer>
       </div>
     );
   }
