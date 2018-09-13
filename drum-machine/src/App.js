@@ -18,7 +18,7 @@ class App extends React.Component {
     this.selectBank = this.selectBank.bind(this);
   }
 
-  selectBank(callback) {
+  selectBank(bankName) {
     this.state.currentPadBankId === 'Heater Kit' ?
       this.setState({
         currentPadBank: bankTwo,
@@ -56,7 +56,7 @@ class App extends React.Component {
           <div className="controls-container">
             <Display infoToDisplay={this.state.display} />
             <VolumeSlider sliderVal={this.state.sliderVal}/>
-            <BankPanel selectBank={ this.selectBank }/>
+            <BankPanel selectBank={ this.selectBank } superCallback={ (bankName) => this.setState({currentPadBankId: bankName}) }/>
           </div>
         </div>
       </div>
