@@ -5,7 +5,7 @@ export default class ButtonPanel extends Component {
       // Declare the Button component
       // You need a fn to translate the number to the string
       const CalcButton = ({name, label, callback}) => {
-          return <button id={ name } onClick={ callback }>{ label }</button>
+          return <button id={ name } onClick={ callback } value={ label }>{ label }</button>
       }
 
       return (

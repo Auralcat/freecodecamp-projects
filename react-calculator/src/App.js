@@ -10,11 +10,10 @@ class App extends Component {
       display: '0'
     }
 
-    this.updateDisplay = this.updateDisplay.bind(this)
+    this.handleButtonClick = this.handleButtonClick.bind(this)
   }
 
-  updateDisplay(event) {
-    console.log(event);
+  handleButtonClick(event) {
     this.setState({
       display: this.state.display + event.target.value
     })
@@ -32,7 +31,7 @@ class App extends Component {
     return (
       <div className="App">
         <Visor display={ this.state.display }/>
-        <ButtonPanel buttonArray={ mappedNumbers } callback={ this.updateDisplay }/>
+        <ButtonPanel buttonArray={ mappedNumbers } callback={ this.handleButtonClick }/>
       </div>
     );
   }
