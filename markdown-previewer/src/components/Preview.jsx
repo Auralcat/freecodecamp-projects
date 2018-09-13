@@ -9,7 +9,8 @@ export default class Preview extends Component {
     }
 
     createMarkup() {
-        return {__html: this.props.callback(this.props.value, {sanitize: true, breaks: true})}
+        return {__html: this.props.callback(this.props.value,
+                                            {sanitize: true, breaks: true})}
     }
 
     render() {

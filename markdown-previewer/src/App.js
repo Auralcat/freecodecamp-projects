@@ -25,7 +25,7 @@ class App extends Component {
           <header>
               <h1>Markdown Previewer</h1>
           </header>
-          <main>
+          <main className="editor-and-preview">
             <Editor callback={ this.getCurrentText } value={ this.state.text }/>
             <Preview callback={ marked } value={ this.state.text }/>
           </main>
