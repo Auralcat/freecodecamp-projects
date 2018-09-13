@@ -39,11 +39,6 @@ class App extends React.Component {
   }
 
   render() {
-    const bankSlider = this.state.currentPadBank === bankOne ? {
-      float: 'left'
-    } : {
-      float: 'right'
-    };
     return (
       <div>
         <h1 style={{ textAlign: 'center' }}>Drum Machine App</h1>
