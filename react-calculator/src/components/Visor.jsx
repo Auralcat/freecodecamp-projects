@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
-class Visor extends Component {
+export default class Visor extends Component {
   render() {
     return (
-      <input value={ this.props.display } readonly/>
+      <input id="display" value={ this.props.display } readonly="true"/>
     );
   }
 }
-
-export default App;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ButtonPanel extends Component {
+export default class ButtonPanel extends Component {
   render() {
       // Declare the Button component
       // You need a fn to translate the number to the string
@@ -15,5 +15,3 @@ class ButtonPanel extends Component {
     );
   }
 }
-
-export default App;
