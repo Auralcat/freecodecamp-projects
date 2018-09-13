@@ -14,14 +14,63 @@ class App extends Component {
   }
 
   handleButtonClick(event) {
-    this.setState({
-      display: this.state.display + event.target.value
-    })
+    switch(event.target.value) {
+    case '=':
+      this.setState({
+        display: String(eval(this.state.display))
+      })
+      break;
+    case 'C':
+      this.setState({
+        display: '0'
+      })
+      break;
+    default:
+      if (this.state.display === '0') {
+        this.setState({
+          display: event.target.value
+        })
+      } else {
+        this.setState({
+          display: this.state.display + event.target.value
+        })
+      }
+    }
   }
 
   render() {
     const numbersCollection = ['zero', 'one', 'two', 'three', 'four', 'five',
                                'six', 'seven', 'eight', 'nine']
+    const opsCollection = [
+      {
+        name: 'add',
+        label: '+'
+      },
+      {
+        name: 'subtract',
+        label: '-'
+      },
+      {
+        name: 'multiply',
+        label: '*'
+      },
+      {
+        name: 'divide',
+        label: '/'
+      },
+      {
+        name: 'equals',
+        label: '='
+      },
+      {
+        name: 'clear',
+        label: 'C'
+      },
+      {
+        name: 'decimal',
+        label: '.'
+      },
+    ]
     const mappedNumbers = numbersCollection.map((num) => {
       return {
         name: num,
@@ -32,6 +81,7 @@ class App extends Component {
       <div className="App">
         <Visor display={ this.state.display }/>
         <ButtonPanel buttonArray={ mappedNumbers } callback={ this.handleButtonClick }/>
+        <ButtonPanel buttonArray={ opsCollection } callback={ this.handleButtonClick }/>
       </div>
     );
   }
