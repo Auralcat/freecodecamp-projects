@@ -8,7 +8,9 @@ class App extends Component {
     super(props)
     this.state = {
       display: '0',
-      precision: 4
+      precision: 4,
+      decimalClicks: 0,
+      locked: false
     }
 
     this.handleButtonClick = this.handleButtonClick.bind(this)
@@ -28,14 +30,23 @@ class App extends Component {
       })
       break;
     case '.':
+      // Count the click
+      this.setState({
+        decimalClicks: this.state.decimalClicks += 1
+      })
       // Check the preview string instead of the current one.
       let isolatedDecimals = this.state.display.split(/[\+\-\/\*]/)
       let allowedDecimalsRegex = /^\d+(\.\d{1,9})?$/
       let regexTest = isolatedDecimals.every((n) => allowedDecimalsRegex.test(n))
-      if (regexTest
-          && !isolatedDecimals.pop().split('').includes('.')) {
+      if (regexTest && !isolatedDecimals[isolatedDecimals.length - 1].includes('.')) {
         this.setState({
           display: this.state.display + '.'
+        })
+      } else if (this.state.decimalClicks >= 2 && !this.state.locked) {
+        this.setState({
+          display: this.state.display + '0',
+          decimalClicks: 0,
+          locked: true
         })
       }
       break;
@@ -44,7 +55,8 @@ class App extends Component {
       if (this.state.display === '0'
           || (operations.includes(this.state.display.split('').pop()) && isNaN(event.target.value))) {
         this.setState({
-          display: this.state.display.replace(/.$/, event.target.value)
+          display: this.state.display.replace(/.$/, event.target.value),
+          locked: false
         })
       } else {
         this.setState({
