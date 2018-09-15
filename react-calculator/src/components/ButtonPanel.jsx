@@ -10,7 +10,10 @@ export default class ButtonPanel extends Component {
 
       return (
           <div className="button-panel">
-              { this.props.buttonArray.map((elem) => <CalcButton name={ elem.name } label={ elem.label } callback={ this.props.callback }/>) }
+              { this.props.buttonArray.map((elem) => <CalcButton key={ elem.name }
+                                                                 name={ elem.name }
+                                                                 label={ elem.label }
+                                                                 callback={ this.props.callback }/>) }
           </div>
     );
   }
