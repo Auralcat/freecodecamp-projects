@@ -18,8 +18,10 @@ class App extends Component {
     switch(event.target.value) {
     case '=':
       let precisionFactor = Math.pow(10, this.state.precision)
+      let roundedRawResult = Math.round(eval(this.state.display))
+      let roundedNum = (roundedRawResult * precisionFactor) / precisionFactor
       this.setState({
-        display: String(Math.round(eval(this.state.display) * precisionFactor) / precisionFactor)
+        display: String(roundedNum)
       })
       break;
     case 'C':
