@@ -7,7 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      display: '0'
+      display: '0',
+      precision: 4
     }
 
     this.handleButtonClick = this.handleButtonClick.bind(this)
@@ -16,8 +17,9 @@ class App extends Component {
   handleButtonClick(event) {
     switch(event.target.value) {
     case '=':
+      let precisionFactor = Math.pow(10, this.state.precision)
       this.setState({
-        display: String(eval(this.state.display))
+        display: String(Math.round(eval(this.state.display) * precisionFactor) / precisionFactor)
       })
       break;
     case 'C':
